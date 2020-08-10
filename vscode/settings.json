@@ -1,0 +1,105 @@
+{
+    "breadcrumbs.enabled": true,
+
+    "explorer.confirmDragAndDrop": false,
+
+    "task.autoDetect": "off",
+
+    "window.titleBarStyle": "native",
+    "window.nativeTabs": true,
+    "window.zoomLevel": 0,
+
+    "workbench.colorTheme": "Default Light+",
+    "workbench.editor.tabCloseButton": "left",
+    "workbench.iconTheme": "vscode-icons",
+
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+
+    // Editor
+    "editor.fontFamily" :"SFMono Nerd Font, SFMono, Menlo, Monaco, Courier New, monospace",
+    "editor.fontLigatures": false,
+    "editor.fontSize": 13,
+    "editor.renderWhitespace": "all",
+    "editor.suggestSelection": "first",
+    "editor.wordWrap": "on",
+    "editor.wordWrapColumn": 120,
+
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "files.maxMemoryForLargeFilesMB": 8192,
+
+    "markdown.extension.toc.githubCompatibility": true,
+    "markdown.extension.toc.levels": "2..6",
+    "markdown.extension.toc.updateOnSave": false,
+    "markdown.extension.italic.indicator": "_",
+
+    // Language specific settings
+
+    "[feature]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 2
+    },
+
+    "java.requirements.JDK11Warning": false,
+
+    "javascript.implicitProjectConfig.checkJs": true,
+
+    "npm.enableScriptExplorer": true,
+
+    "python.linting.enabled": false,
+    "python.showStartPage": false,
+
+    "[swift]": {
+        "files.trimTrailingWhitespace": false
+    },
+
+    "typescript.updateImportsOnFileMove.enabled": "always",
+
+    // Spellcheck
+
+    "cSpell.enabledLanguageIds": [
+        "asciidoc",
+        "c",
+        "cpp",
+        "csharp",
+        "css",
+        "feature",
+        "go",
+        "handlebars",
+        "html",
+        "jade",
+        "java",
+        "javascript",
+        "javascriptreact",
+        "json",
+        "jsonc",
+        "latex",
+        "less",
+        "markdown",
+        "php",
+        "plaintext",
+        "pug",
+        "python",
+        "restructuredtext",
+        "rust",
+        "scala",
+        "scss",
+        "text",
+        "typescript",
+        "typescriptreact",
+        "yaml",
+        "yml"
+    ],
+    "cSpell.userWords": [
+        "Brentley",
+        "barcode"
+    ],
+}

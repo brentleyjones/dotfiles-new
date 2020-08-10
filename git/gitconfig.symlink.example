@@ -1,0 +1,52 @@
+# Sample gitconfig
+#
+
+[user]
+        name = AUTHORNAME
+        email = AUTHOREMAIL
+[credential]
+        helper = GIT_CREDENTIAL_HELPER
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+        ui = true
+[core]
+        excludesfile = ~/.gitignore
+        editor = nano
+	pager = diff-so-fancy | less --tabs=4 -RXF
+[interactive]
+	diffFilter = diff-highlight | less --tabs=4 -RXF
+[apply]
+        whitespace = nowarn
+[mergetool "Kaleidoscope"]
+        cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" \"$REMOTE\"
+        trustExitCode = true
+[mergetool]
+        prompt = false
+        keepBackup = false
+[merge]
+        tool = Kaleidoscope
+[rebase]
+	autosquash = true
+[difftool "Kaleidoscope"]
+        cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+        prompt = false
+[diff]
+	tool = Kaleidoscope
+[help]
+        autocorrect = 1
+[push]
+        # See `git help config` (search for push.default)
+        # for more information on different options of the below setting.
+        #
+        # Setting to git 2.0 default to suppress warning message
+        default = current
+[pull]
+	ff = only
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

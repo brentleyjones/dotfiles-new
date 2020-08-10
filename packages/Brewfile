@@ -1,0 +1,39 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+
+cask_args appdir: "/Applications"
+
+brew "clang-format"
+brew "diff-so-fancy"
+brew "fish"
+brew "git"
+brew "grc"
+brew "grpcurl"
+brew "mas"
+brew "ripgrep"
+brew "the_silver_searcher"
+brew "tree"
+
+cask "1Password"
+cask "bettertouchtool"
+cask "bitbar"
+cask "istat-menus"
+cask "iterm2"
+cask "kaleidoscope"
+cask "moom"
+cask "omnifocus"
+cask "tower"
+cask "visual-studio-code"
+
+mas "DaisyDisk", id: 411643860
+mas "Deliveries", id: 924726344
+mas "Fantastical", id: 975937182
+mas "Keynote", id: 409183694
+mas "Moom", id: 419330170
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Slack", id: 803453959
+mas "Tweetbot", id: 557168941
+mas "Ulysses", id: 1225570693
