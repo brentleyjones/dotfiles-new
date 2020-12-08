@@ -1,5 +1,6 @@
 abbr -a -U -- deeplink 'xcrun simctl openurl booted'
-abbr -a -U -- g 'git'
+abbr -a -U -- g git
+abbr -a -U -- gaa 'git add .'
 abbr -a -U -- gc 'git commit'
 abbr -a -U -- gca 'git commit --amend --no-edit'
 abbr -a -U -- gcaa 'git commit --amend --no-edit -a'
