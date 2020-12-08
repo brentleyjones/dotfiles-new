@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Sets reasonable OS X defaults.
 
 # Ask for the administrator password upfront
