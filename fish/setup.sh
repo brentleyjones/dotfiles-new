@@ -28,11 +28,16 @@ set_fish_shell() {
     if grep --quiet fish <<< "$SHELL"; then
         substep_success "fish shell is already set up"
     else
-        substep_info "adding fish executable to /etc/shells"
-        if grep --fixed-strings --line-regexp --quiet "/usr/local/bin/fish" /etc/shells; then
+        fish_path=$(which fish)
+        if [ "$fish_path" == "" ]; then
+            substep_error "fish is not installed"
+            return 1
+        fi
+
+        if grep --fixed-strings --line-regexp --quiet "$fish_path" /etc/shells; then
             substep_success "fish executable already exists in /etc/shells"
         else
-            if sudo bash -c "echo /usr/local/bin/fish >> /etc/shells"; then
+            if sudo bash -c "echo $fish_path >> /etc/shells"; then
                 substep_success "fish executable added to /etc/shells"
             else
                 substep_error "failed adding Fish executable to /etc/shells"
@@ -40,7 +45,7 @@ set_fish_shell() {
             fi
         fi
         substep_info "changing shell to fish"
-        if sudo chsh -s /usr/local/bin/fish $(whoami); then
+        if sudo chsh -s "$fish_path" $(whoami); then
             substep_success "changed shell to fish"
         else
             substep_error "failed changing shell to fish"
