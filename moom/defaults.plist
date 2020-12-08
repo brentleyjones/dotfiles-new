@@ -31,6 +31,8 @@
 			<false/>
 			<key>Move Delta</key>
 			<integer>50</integer>
+			<key>Move Delta Unit</key>
+			<integer>0</integer>
 			<key>Move Direction</key>
 			<integer>5</integer>
 			<key>Move to Edge/Corner Direction</key>
@@ -82,6 +84,8 @@
 			<false/>
 			<key>Move Delta</key>
 			<integer>50</integer>
+			<key>Move Delta Unit</key>
+			<integer>0</integer>
 			<key>Move Direction</key>
 			<integer>5</integer>
 			<key>Move to Edge/Corner Direction</key>
@@ -131,6 +135,8 @@
 			<false/>
 			<key>Move Delta</key>
 			<integer>50</integer>
+			<key>Move Delta Unit</key>
+			<integer>0</integer>
 			<key>Move Direction</key>
 			<integer>5</integer>
 			<key>Move to Edge/Corner Direction</key>
@@ -169,6 +175,8 @@
 			<false/>
 			<key>Move Delta</key>
 			<integer>50</integer>
+			<key>Move Delta Unit</key>
+			<integer>0</integer>
 			<key>Move Direction</key>
 			<integer>5</integer>
 			<key>Move to Edge/Corner Direction</key>
@@ -190,7 +198,7 @@
 			<key>Action</key>
 			<integer>1001</integer>
 			<key>Apply to Overlapping Windows</key>
-			<false/>
+			<true/>
 			<key>Auto-Trigger</key>
 			<true/>
 			<key>Auto-Trigger Display Count</key>
@@ -207,6 +215,8 @@
 			<false/>
 			<key>Move Delta</key>
 			<integer>50</integer>
+			<key>Move Delta Unit</key>
+			<integer>0</integer>
 			<key>Move Direction</key>
 			<integer>5</integer>
 			<key>Move to Edge/Corner Direction</key>
@@ -227,40 +237,40 @@
 			<array>
 				<dict>
 					<key>Application Name</key>
-					<string>Tower</string>
-					<key>Available Screen Frame</key>
-					<string>{{0, 43}, {1680, 984}}</string>
-					<key>Bundle Identifier</key>
-					<string>com.fournova.tower3</string>
-					<key>Screen Frame</key>
-					<string>{{0, 0}, {1680, 1050}}</string>
-					<key>Window Frame</key>
-					<string>{{0, 45}, {1680, 754}}</string>
-					<key>Window Subrole</key>
-					<string>AXStandardWindow</string>
-					<key>Window Title</key>
-					<string>Harmony-iOS – Working Copy (NBS/improvements – 0 Changed Files)</string>
-				</dict>
-				<dict>
-					<key>Application Name</key>
 					<string>iTerm2</string>
 					<key>Available Screen Frame</key>
-					<string>{{0, 43}, {1680, 984}}</string>
+					<string>{{0, 43}, {1792, 1054}}</string>
 					<key>Bundle Identifier</key>
 					<string>com.googlecode.iterm2</string>
 					<key>Screen Frame</key>
-					<string>{{0, 0}, {1680, 1050}}</string>
+					<string>{{0, 0}, {1792, 1120}}</string>
 					<key>Window Frame</key>
-					<string>{{-1, 800}, {1680, 227}}</string>
+					<string>{{0, 794}, {1792, 303}}</string>
 					<key>Window Subrole</key>
 					<string>AXStandardWindow</string>
 					<key>Window Title</key>
-					<string>fish /Users/z002wrr/Development/Target/Harmony-iOS</string>
+					<string>fish /Users/z002wrr/Development/Target/bazel</string>
+				</dict>
+				<dict>
+					<key>Application Name</key>
+					<string>Tower</string>
+					<key>Available Screen Frame</key>
+					<string>{{0, 43}, {1792, 1054}}</string>
+					<key>Bundle Identifier</key>
+					<string>com.fournova.tower3</string>
+					<key>Screen Frame</key>
+					<string>{{0, 0}, {1792, 1120}}</string>
+					<key>Window Frame</key>
+					<string>{{0, 45}, {1792, 754}}</string>
+					<key>Window Subrole</key>
+					<string>AXStandardWindow</string>
+					<key>Window Title</key>
+					<string>ios – Bazel-3.7.0 (Counting Commits)</string>
 				</dict>
 			</array>
 			<key>Snapshot Screens</key>
 			<array>
-				<string>{{0, 0}, {1680, 1050}}</string>
+				<string>{{0, 0}, {1792, 1120}}</string>
 			</array>
 			<key>Title</key>
 			<string>Tower - iTerm</string>
@@ -286,6 +296,8 @@
 			<false/>
 			<key>Move Delta</key>
 			<integer>50</integer>
+			<key>Move Delta Unit</key>
+			<integer>0</integer>
 			<key>Move Direction</key>
 			<integer>5</integer>
 			<key>Move to Edge/Corner Direction</key>
@@ -356,7 +368,9 @@
 		<string>⌃⌥⌘↓</string>
 	</dict>
 	<key>NSStatusItem Preferred Position Item-0</key>
-	<real>784</real>
+	<real>688</real>
+	<key>NSStatusItem Preferred Position com.manytricks.Moom.StatusItem</key>
+	<real>688</real>
 	<key>NSToolbar Configuration Preferences (App Store) 3174</key>
 	<dict>
 		<key>TB Display Mode</key>
