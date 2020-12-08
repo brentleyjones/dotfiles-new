@@ -6,6 +6,8 @@ cd "$(dirname "$0")"
 
 source ../scripts/functions.sh
 
+mkdir -p ~/Library/Application\ Support/Code/User
+
 src="$(osx_realpath .)"
 dst="$(osx_realpath ~/Library/Application\ Support/Code/User)"
 
