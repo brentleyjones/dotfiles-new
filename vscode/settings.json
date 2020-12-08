@@ -54,8 +54,10 @@
 
     "npm.enableScriptExplorer": true,
 
+    "python.languageServer": "Pylance",
     "python.linting.enabled": false,
     "python.showStartPage": false,
+    "python.pythonPath": "/usr/bin/python3",
 
     "[swift]": {
         "files.trimTrailingWhitespace": false
