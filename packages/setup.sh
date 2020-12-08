@@ -1,5 +1,7 @@
 #! /usr/bin/env sh
 
+set -e
+
 cd "$(dirname "$0")"
 
 source ../scripts/functions.sh
@@ -9,6 +11,23 @@ if test ! $(which brew); then
     info "installing Homebrew"
 
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" </dev/null
+fi
+
+# Install xcodes
+if test ! $(which xcodes); then
+    info "installing xcodes"
+
+    brew install robotsandpencils/made/xcodes
+fi
+
+# Install Xcode if needed
+if [ "$(xcode-select -p)" == "/Library/Developer/CommandLineTools" ]; then
+    info "installing Xcode"
+
+    xcodes install --latest
+    xcode_path = "$(mdfind kind:application -onlyin /Applications -name 'Xcode-' | tail -n 1)"
+    sudo xcode-select -s "$xcode_path"
+    sudo xcodebuild -runFirstLaunch
 fi
 
 # Ensure we are signed into mas

@@ -14,6 +14,7 @@ brew "grc"
 brew "grpcurl"
 brew "mas"
 brew "ripgrep"
+brew "robotsandpencils/made/xcodes"
 brew "the_silver_searcher"
 brew "tree"
 
