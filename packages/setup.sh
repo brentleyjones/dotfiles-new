@@ -2,7 +2,7 @@
 
 set -e
 
-cd "$(dirname "$0")"
+cd "${BASH_SOURCE[0]%/*}"
 
 source ../scripts/functions.sh
 
