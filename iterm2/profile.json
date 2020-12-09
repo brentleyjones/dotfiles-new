@@ -1,11 +1,5 @@
 {
-  "Link Color" : {
-    "Red Component" : 0,
-    "Color Space" : "sRGB",
-    "Blue Component" : 0.73423302173614502,
-    "Alpha Component" : 1,
-    "Green Component" : 0.35916060209274292
-  },
+  "Use Non-ASCII Font" : true,
   "Tags" : [
 
   ],
@@ -14,28 +8,30 @@
     "Red Component" : 0.3333333432674408,
     "Blue Component" : 1
   },
-  "Ansi 7 Color" : {
+  "Ansi 6 Color" : {
     "Green Component" : 0.73333334922790527,
-    "Red Component" : 0.73333334922790527,
+    "Red Component" : 0,
     "Blue Component" : 0.73333334922790527
   },
-  "Ansi 8 Color" : {
-    "Green Component" : 0.3333333432674408,
-    "Red Component" : 0.3333333432674408,
-    "Blue Component" : 0.3333333432674408
-  },
+  "Normal Font" : "SFMonoNerdFontComplete-Regular 12",
   "Bold Color" : {
     "Green Component" : 0,
     "Red Component" : 0,
     "Blue Component" : 0
   },
-  "Ansi 9 Color" : {
-    "Green Component" : 0.3333333432674408,
-    "Red Component" : 1,
-    "Blue Component" : 0.3333333432674408
+  "Link Color" : {
+    "Red Component" : 0,
+    "Color Space" : "sRGB",
+    "Blue Component" : 0.73423302173614502,
+    "Alpha Component" : 1,
+    "Green Component" : 0.35916060209274292
   },
-  "Transparency" : 0,
-  "Custom Directory" : "Recycle",
+  "Ansi 1 Color" : {
+    "Green Component" : 0,
+    "Red Component" : 0.73333334922790527,
+    "Blue Component" : 0
+  },
+  "Guid" : "63057468-9CA1-459F-8AEE-209904CDA526",
   "Rows" : 25,
   "Default Bookmark" : "No",
   "Cursor Guide Color" : {
@@ -95,7 +91,7 @@
     "Red Component" : 1,
     "Blue Component" : 1
   },
-  "Title Components" : 3,
+  "Title Components" : 2,
   "Custom Command" : "No",
   "ASCII Anti Aliased" : true,
   "Non Ascii Font" : "SFMonoNerdFontComplete-Regular 12",
@@ -308,28 +304,25 @@
         "class" : "iTermStatusBarWorkingDirectoryComponent",
         "configuration" : {
           "knobs" : {
-            "maxwidth" : 0,
-            "base: priority" : 100,
+            "path" : "path",
+            "base: priority" : 5,
+            "base: compression resistance" : 1,
             "minwidth" : 0,
-            "base: compression resistance" : 2,
-            "shared text color" : {
-              "Red Component" : 0.40000000000000002,
-              "Color Space" : "sRGB",
-              "Blue Component" : 0.40000000000000002,
-              "Alpha Component" : 1,
-              "Green Component" : 0.40000000000000002
-            }
+            "maxwidth" : 1.7976931348623157e+308
           },
           "layout advanced configuration dictionary value" : {
-            "font" : ".AppleSystemUIFont 12",
-            "algorithm" : 0
+            "auto-rainbow style" : 0,
+            "algorithm" : 0,
+            "remove empty components" : false
           }
         }
       }
     ],
     "advanced configuration" : {
+      "remove empty components" : false,
       "font" : ".AppleSystemUIFont 12",
-      "algorithm" : 0
+      "algorithm" : 0,
+      "auto-rainbow style" : 0
     }
   },
   "Silence Bell" : false,
@@ -351,35 +344,39 @@
     "Red Component" : 0,
     "Blue Component" : 0
   },
+  "Transparency" : 0,
   "Ansi 0 Color" : {
     "Green Component" : 0,
     "Red Component" : 0,
     "Blue Component" : 0
   },
-  "Ansi 1 Color" : {
-    "Green Component" : 0,
-    "Red Component" : 0.73333334922790527,
-    "Blue Component" : 0
-  },
-  "Guid" : "63057468-9CA1-459F-8AEE-209904CDA526",
+  "Horizontal Spacing" : 1,
   "Ansi 3 Color" : {
     "Green Component" : 0.73333334922790527,
     "Red Component" : 0.73333334922790527,
     "Blue Component" : 0
   },
-  "Horizontal Spacing" : 1,
-  "Right Option Key Sends" : 0,
-  "Use Non-ASCII Font" : true,
-  "Ansi 6 Color" : {
-    "Green Component" : 0.73333334922790527,
-    "Red Component" : 0,
-    "Blue Component" : 0.73333334922790527
-  },
-  "Normal Font" : "SFMonoNerdFontComplete-Regular 12",
   "Ansi 2 Color" : {
     "Green Component" : 0.73333334922790527,
     "Red Component" : 0,
     "Blue Component" : 0
+  },
+  "Right Option Key Sends" : 0,
+  "Custom Directory" : "Recycle",
+  "Ansi 7 Color" : {
+    "Green Component" : 0.73333334922790527,
+    "Red Component" : 0.73333334922790527,
+    "Blue Component" : 0.73333334922790527
+  },
+  "Ansi 8 Color" : {
+    "Green Component" : 0.3333333432674408,
+    "Red Component" : 0.3333333432674408,
+    "Blue Component" : 0.3333333432674408
+  },
+  "Ansi 9 Color" : {
+    "Green Component" : 0.3333333432674408,
+    "Red Component" : 1,
+    "Blue Component" : 0.3333333432674408
   },
   "Ansi 4 Color" : {
     "Green Component" : 0,
