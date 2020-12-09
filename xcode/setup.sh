@@ -1,3 +1,9 @@
 #!/usr/bin/env bash
 
-mkdir -p ~/Development
+set -uo pipefail
+
+cd "${BASH_SOURCE[0]%/*}"
+
+mkdir -p ~/Developer
+
+./edit_sidebar.py
