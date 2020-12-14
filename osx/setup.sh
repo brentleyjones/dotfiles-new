@@ -195,8 +195,8 @@ defaults write com.apple.dock showhidden -bool true
 # Set Autofill rules
 defaults write -app Safari AutoFillFromAddressBook -bool false
 defaults write -app Safari AutoFillPasswords -bool false
-defaults write -app Safari AutoFillCreditCardData -bool false
-defaults write -app Safari AutoFillMiscellaneousForms -bool false
+defaults write -app Safari AutoFillCreditCardData -bool true
+defaults write -app Safari AutoFillMiscellaneousForms -bool true
 
 # Prevent Safari from opening ‘safe’ files automatically after downloading
 defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
