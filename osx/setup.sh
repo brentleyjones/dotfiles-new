@@ -340,8 +340,9 @@ defaults write -app 'Microsoft Outlook' 'viewIndividualPrefs.Calendar Grid View'
 	OLViewPrefCalendarViewTypeKey = OLViewPrefCalendarViewTypeWorkWeekValue;
 }'
 
-
 # Kill all affected apps
+
+sleep 1
 for app in "Activity Monitor" "cfprefsd" "Dock" "Fantastical" "Finder" "Mail" "Kaleidoscope" "Microsoft Outlook" "Safari" "Tower" "SystemUIServer"; do
 	killall "${app}" > /dev/null 2>&1
 done
