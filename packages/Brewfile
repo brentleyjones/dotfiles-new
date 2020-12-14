@@ -9,16 +9,12 @@ brew "aria2"
 brew "clang-format"
 brew "diff-so-fancy"
 brew "fd"
-brew "fish"
 brew "git"
 brew "git-lfs"
 brew "grc"
 brew "grpcurl"
 brew "node"
-brew "mas"
-brew "python"
 brew "ripgrep"
-brew "robotsandpencils/made/xcodes"
 brew "the_silver_searcher"
 brew "tree"
 
@@ -32,15 +28,3 @@ cask "kaleidoscope"
 cask "moom"
 cask "omnifocus"
 cask "tower"
-cask "visual-studio-code"
-
-mas "DaisyDisk", id: 411643860
-mas "Deliveries", id: 290986013
-mas "Fantastical", id: 975937182
-mas "Keynote", id: 409183694
-mas "Moom", id: 419330170
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "Slack", id: 803453959
-mas "Tweetbot", id: 557168941
-mas "Ulysses", id: 1225570693

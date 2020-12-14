@@ -1,0 +1,10 @@
+tap "homebrew/cask"
+
+cask_args appdir: "/Applications"
+
+brew "fish"
+brew "mas"
+brew "python"
+brew "robotsandpencils/made/xcodes"
+
+cask "visual-studio-code"
