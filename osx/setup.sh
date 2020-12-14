@@ -71,6 +71,9 @@ defaults write com.apple.touchbar.agent PresentationModeFnModes '{
 	app = fullControlStrip;
 }'
 
+# Function keys on external keyboard are shortcuts
+defaults write NSGlobalDomain com.apple.keyboard.fnState -bool false
+
 ###############################################################################
 # Screen                                                                      #
 ###############################################################################
