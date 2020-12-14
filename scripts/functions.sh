@@ -26,14 +26,16 @@ substep_success () {
 
 error () {
   printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
-  echo ''
-  exit
+
+  required="$2:-true"
+  if [ "$required" == "true" ]; then
+    echo ''
+    exit 1
+  fi
 }
 
 substep_error () {
   printf "\r\033[2K  [\033[0;31mFAIL\033[0m] - $1\n"
-  echo ''
-  exit
 }
 
 osx_realpath() {

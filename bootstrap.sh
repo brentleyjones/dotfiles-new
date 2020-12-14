@@ -66,7 +66,7 @@ install_dotfiles
 
 # Run the rest of the setups
 find * -name "setup.sh" -not -wholename "packages*" | while read setup; do
-    "./$setup"
+    "./$setup" || true
 done
 
 echo ''
