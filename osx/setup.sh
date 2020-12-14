@@ -199,36 +199,36 @@ defaults write -app Safari AutoFillCreditCardData -bool true
 defaults write -app Safari AutoFillMiscellaneousForms -bool true
 
 # Prevent Safari from opening ‘safe’ files automatically after downloading
-defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
+defaults write -app Safari AutoOpenSafeDownloads -bool false
 
 # Hide Safari’s bookmarks bar by default
-defaults write com.apple.Safari ShowFavoritesBar -bool false
+defaults write -app Safari ShowFavoritesBar -bool false
 
 # Always show Safari's Tab Bar
 defaults write -app Safari AlwaysShowTabBar -bool true
 
 # Hide Safari’s sidebar in Top Sites
-defaults write com.apple.Safari ShowSidebarInTopSites -bool false
+defaults write -app Safari ShowSidebarInTopSites -bool false
 
 # Hide Safari's sidebar in new windows
-defaults write com.apple.Safari ShowSidebarInNewWindows -bool false
+defaults write -app Safari ShowSidebarInNewWindows -bool false
 
 # Enable Safari’s debug menu
-defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+defaults write -app Safari IncludeInternalDebugMenu -bool true
 
 # Make Safari’s search banners default to Contains instead of Starts With
-defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
+defaults write -app Safari FindOnPageMatchesWordStartsOnly -bool false
 
 # Enable the Develop menu and the Web Inspector in Safari
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
+defaults write -app Safari IncludeDevelopMenu -bool true
+defaults write -app Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+defaults write -app Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
 
 # Add a context menu item for showing the Web Inspector in web views
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
 # Customize toolbar
-defaults write com.apple.Safari "NSToolbar Configuration BrowserToolbarIdentifier-v2" -dict-add "TB Item Identifiers" '(BackForwardToolbarIdentifier,NSToolbarFlexibleSpaceItem,InputFieldsToolbarIdentifier,NSToolbarFlexibleSpaceItem,"com.agilebits.onepassword4-safari-2BUA8C4S2C onepassword",ShowDownloadsToolbarIdentifier,TabPickerToolbarIdentifier)'
+defaults write -app Safari "NSToolbar Configuration BrowserToolbarIdentifier-v2" -dict-add "TB Item Identifiers" '(BackForwardToolbarIdentifier,NSToolbarFlexibleSpaceItem,InputFieldsToolbarIdentifier,NSToolbarFlexibleSpaceItem,"com.agilebits.onepassword4-safari-2BUA8C4S2C onepassword",ShowDownloadsToolbarIdentifier,TabPickerToolbarIdentifier)'
 
 ###############################################################################
 # Activity Monitor                                                            #
