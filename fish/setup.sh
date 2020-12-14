@@ -11,7 +11,7 @@ cd "${BASH_SOURCE[0]%/*}"
 source ../scripts/functions.sh
 
 src="$(osx_realpath .)"
-dst="$(osx_realpath ~/.config/fish)"
+dst="$(osx_realpath $HOME/.config/fish)"
 
 info "setting up fish shell"
 
@@ -41,7 +41,7 @@ set_fish_shell() {
                 substep_success "fish executable added to /etc/shells"
             else
                 substep_error "failed adding Fish executable to /etc/shells"
-                return 1
+                return 2
             fi
         fi
         substep_info "changing shell to fish"
@@ -49,7 +49,7 @@ set_fish_shell() {
             substep_success "changed shell to fish"
         else
             substep_error "failed changing shell to fish"
-            return 2
+            return 3
         fi
         substep_info "running fish initial setup"
         fish -c "setup"
