@@ -5,6 +5,7 @@ tap "homebrew/core"
 
 cask_args appdir: "/Applications"
 
+brew "aria2"
 brew "clang-format"
 brew "diff-so-fancy"
 brew "fd"
