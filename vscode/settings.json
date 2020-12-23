@@ -8,6 +8,7 @@
     "window.titleBarStyle": "native",
     "window.nativeTabs": true,
     "window.zoomLevel": 0,
+    "window.autoDetectColorScheme": true,
 
     "workbench.colorTheme": "Default Light+",
     "workbench.editor.tabCloseButton": "left",
