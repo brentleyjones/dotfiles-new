@@ -287,6 +287,66 @@ defaults write com.apple.dt.Xcode ShowDVTDebugMenu -bool true
 defaults write -app Kaleidoscope KS2UpTextScopeViewControllerDefaultsInitialDetailControllerClassNameKey -int 1
 defaults write -app Kaleidoscope KS3UpTextScopeViewControllerDefaultsInitialDetailControllerClassNameKey -int 1
 
+# iTerm2
+defaults write -app iTerm OnlyWhenMoreTabs -bool false
+defaults write -app iTerm GlobalKeyMap '{
+"0x19-0x60000" = {
+		Action = 39;
+		Text = "";
+	};
+	"0x7f-0x80000-0x33" = {
+		Action = 11;
+		Label = "";
+		Text = 0x17;
+	};
+	"0x9-0x40000" = {
+		Action = 32;
+		Text = "";
+	};
+	"0xf700-0x300000" = {
+		Action = 7;
+		Text = "";
+	};
+	"0xf701-0x300000" = {
+		Action = 6;
+		Text = "";
+	};
+	"0xf702-0x300000-0x7b" = {
+		Action = 10;
+		Label = "";
+		Text = OH;
+	};
+	"0xf703-0x300000-0x7c" = {
+		Action = 10;
+		Label = "";
+		Text = OF;
+	};
+	"0xf729-0x100000" = {
+		Action = 5;
+		Text = "";
+	};
+	"0xf72b-0x100000" = {
+		Action = 4;
+		Text = "";
+	};
+	"0xf72c-0x100000" = {
+		Action = 9;
+		Text = "";
+	};
+	"0xf72c-0x20000" = {
+		Action = 9;
+		Text = "";
+	};
+	"0xf72d-0x100000" = {
+		Action = 8;
+		Text = "";
+	};
+	"0xf72d-0x20000" = {
+		Action = 8;
+		Text = "";
+	};
+}'
+
 # Fantastical
 defaults write -app Fantastical HideDockIcon -bool true
 
