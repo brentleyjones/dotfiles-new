@@ -1,0 +1,55 @@
+#!/bin/bash
+
+set -euo pipefail
+
+readonly commit_arg="${1:-HEAD}"
+if [[ $# -gt 0 ]]; then
+  shift
+fi
+
+readonly commit="$(git rev-parse "$commit_arg")"
+readonly branch_name="bj/$(git show --no-patch --format=%f "$commit" | tr '[:upper:]' '[:lower:]')"
+
+if git show-ref --verify --quiet refs/heads/"$branch_name"; then
+  echo "error: branch named '$branch_name' already exists" >&2
+  exit 1
+fi
+
+branch_with_remote=$(git rev-parse --abbrev-ref --symbolic-full-name "@{upstream}")
+remote_branch_name="${branch_with_remote#*/}"
+
+git branch --no-track "$branch_name" "@{upstream}"
+
+git worktree prune
+readonly worktree_name=$(git rev-parse --show-toplevel | md5)
+readonly worktree_dir="/tmp/$worktree_name"
+if [[ ! -d "$worktree_dir" ]]; then
+  git worktree add "$worktree_dir" "$branch_name"
+else
+  git -C "$worktree_dir" switch "$branch_name"
+fi
+
+_checkout_empty() {
+  git -C "$worktree_dir" switch -C "empty-$worktree_name" --quiet
+}
+
+if ! git -C "$worktree_dir" cherry-pick "$commit"; then
+  if ! git -C "$worktree_dir" mergetool; then
+    # TODO: should this be -D?
+    git -C "$worktree_dir" cherry-pick --abort
+    _checkout_empty
+    git branch -d "$branch_name"
+    exit 1
+  fi
+fi
+
+if git -C "$worktree_dir" push --quiet --set-upstream origin "$branch_name"; then
+  gh pr create --draft --fill --base "$remote_branch_name" --head "$branch_name" "$@"
+elif git -C "$worktree_dir" push --quiet --set-upstream mine "$branch_name"; then
+  git -C "$worktree_dir" open --remote mine "pull/new/$branch_name"
+else
+  echo "error: failed to create remote branch" >&2
+  git branch -d "$branch_name"
+fi
+
+_checkout_empty

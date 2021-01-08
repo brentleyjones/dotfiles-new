@@ -1,0 +1,83 @@
+#!/bin/bash
+
+set -euo pipefail
+
+if [[ $# -lt 1 ]]; then
+  echo "usage: $0 <existing_sha> [<new_sha>]" >&2
+  exit 1
+fi
+
+readonly commit_to_update=$1
+readonly new_refspec=$(git rev-parse "${2:-HEAD}")
+readonly base_refspec=$(git rev-parse HEAD)
+
+if ! git cat-file -e "$commit_to_update" 2> /dev/null; then
+  echo "error: invalid commit sha: '$commit_to_update'" >&2
+  exit 1
+fi
+
+readonly branch_name="bj/$(git show --no-patch --format=%f "$commit_to_update" | tr '[:upper:]' '[:lower:]')"
+if ! git show-ref --verify --quiet refs/heads/"$branch_name"; then
+  echo "error: branch '$branch_name' doesn't exist" >&2
+  exit 1
+fi
+
+git worktree prune
+readonly worktree_name=$(git rev-parse --show-toplevel | md5)
+readonly worktree_dir="/tmp/$worktree_name"
+if [[ ! -d "$worktree_dir" ]]; then
+  git worktree add "$worktree_dir" "$branch_name"
+else
+  git -C "$worktree_dir" switch "$branch_name"
+fi
+
+_checkout_empty() {
+  git -C "$worktree_dir" switch -C "empty-$worktree_name" --quiet
+}
+
+_ask() {
+  read -p "$1" -n 1 -r
+  if [[ "$REPLY" =~ ^[Yy]$ ]]; then
+    echo "y"
+  elif [[ "$REPLY" =~ ^[Nn]$ ]]; then
+    echo "n"
+  else
+    echo >&2
+    _ask "$1"
+  fi
+}
+
+branch_with_remote=$(git -C "$worktree_dir" rev-parse --abbrev-ref --symbolic-full-name "@{upstream}")
+remote_name="${branch_with_remote%%/*}"
+remote_branch_name="${branch_with_remote#*/}"
+
+git -C "$worktree_dir" fetch "$remote_name" "$remote_branch_name"
+if ! git -C "$worktree_dir" diff --quiet "HEAD...@{upstream}"; then
+  answer=$(_ask "warning: upstream has new commits, would you like to pull those (or abort)? (y/n) ")
+  if [[ "$answer" == y ]]; then
+    git -C "$worktree_dir" pull
+  else
+    echo "warning: not updating PR, checkout '$branch_name', pull and try again" >&2
+    _checkout_empty
+    exit 1
+  fi
+fi
+
+if ! git -C "$worktree_dir" cherry-pick "$new_refspec^..$base_refspec"; then
+  if git -C "$worktree_dir" mergetool; then
+    git -C "$worktree_dir" cherry-pick --continue
+  else
+    git -C "$worktree_dir" cherry-pick --abort
+    _checkout_empty
+    # TODO what do i do? i think we have to reset branch state? maybe just abort cherry pick?
+    exit 1
+  fi
+fi
+
+git -C "$worktree_dir" push --quiet || echo "warning: failed to push '$branch_name'" >&2
+
+export GIT_SEQUENCE_EDITOR=true
+
+git rebase --interactive --exec "git commit --amend --fixup '$commit_to_update'" "$new_refspec"^
+git rebase --interactive --autosquash "$commit_to_update"^
+_checkout_empty
