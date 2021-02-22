@@ -3,6 +3,7 @@
 set -euo pipefail
 
 readonly commit_arg="${1:-HEAD}"
+readonly base_branch_commit_arg="${2:-}"
 if [[ $# -gt 0 ]]; then
   shift
 fi
@@ -15,15 +16,24 @@ if git show-ref --verify --quiet refs/heads/"$branch_name"; then
   exit 1
 fi
 
-branch_with_remote=$(git rev-parse --abbrev-ref --symbolic-full-name "@{upstream}")
-remote_branch_name="${branch_with_remote#*/}"
+if [[ "$base_branch_commit_arg" != "" ]]; then
+  readonly base_branch_commit="$(git rev-parse "$base_branch_commit_arg")"
+  readonly base_branch_name="bj/$(git show --no-patch --format=%f "$base_branch_commit" | tr '[:upper:]' '[:lower:]')"
+  readonly branch_with_remote=$(git for-each-ref --format='%(upstream:short)' "$(git config "branch.$base_branch_name.merge")")
+  readonly remote_branch_name="${branch_with_remote#*/}"
+else
+  readonly branch_with_remote=$(git rev-parse --abbrev-ref --symbolic-full-name "@{upstream}")
+  readonly remote_branch_name="${branch_with_remote#*/}"
+fi
 
-git branch --no-track "$branch_name" "@{upstream}"
+git branch --no-track "$branch_name" "$branch_with_remote"
 
-git worktree prune
 readonly worktree_name=$(git rev-parse --show-toplevel | md5)
 readonly worktree_dir="/tmp/$worktree_name"
-if [[ ! -d "$worktree_dir" ]]; then
+# If the OS cleaned the directory in the /tmp dir, it maybe exist but be empty
+if [[ ! -f "$worktree_dir/.git" ]]; then
+  rm -rf "$worktree_dir" 2>/dev/null || true
+  git worktree prune
   git worktree add "$worktree_dir" "$branch_name"
 else
   git -C "$worktree_dir" switch "$branch_name"
@@ -44,7 +54,7 @@ if ! git -C "$worktree_dir" cherry-pick "$commit"; then
 fi
 
 if git -C "$worktree_dir" push --quiet --set-upstream origin "$branch_name"; then
-  gh pr create --draft --fill --base "$remote_branch_name" --head "$branch_name" "$@"
+  gh pr create --draft --fill --base "$remote_branch_name" --head "$branch_name"
 elif git -C "$worktree_dir" push --quiet --set-upstream mine "$branch_name"; then
   git -C "$worktree_dir" open --remote mine "pull/new/$branch_name"
 else
