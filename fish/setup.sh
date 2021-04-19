@@ -2,24 +2,25 @@
 #
 # Fish
 #
-# This sets up Fish as the default shell and symlinks files to the correct spots in ~/.config/fish/.
+# This sets up Fish as the default shell and symlinks files to the correct spots in $XDG_CONFIG_HOME/fish/.
 
 set -uo pipefail
 
-cd "${BASH_SOURCE[0]%/*}"
+cd "${BASH_SOURCE[0]%/*}" || exit 1
 
 source ../scripts/functions.sh
 
 src="$(osx_realpath .)"
-dst="$(osx_realpath $HOME/.config/fish)"
+dst="$(osx_realpath "$XDG_CONFIG_HOME/fish")"
 
 info "setting up fish shell"
 
-substep_info "creating fish config folders"
+substep_info "creating config folders"
 mkdir -p "$dst/functions"
 mkdir -p "$dst/completions"
 
-find * -name "*.fish" -o -name "fish_plugins" | while read fn; do
+substep_info "creating symlinks"
+find . -name "*.fish" -o -name "fish_plugins" | cut -c3- | while read -r fn; do
     symlink "$src/$fn" "$dst/$fn"
 done
 clear_broken_symlinks "$dst"
@@ -28,7 +29,7 @@ set_fish_shell() {
     if grep --quiet fish <<< "$SHELL"; then
         substep_success "fish shell is already set up"
     else
-        fish_path=$(which fish)
+        fish_path="$(which fish)"
         if [ "$fish_path" == "" ]; then
             substep_error "fish is not installed"
             return 1
@@ -45,7 +46,7 @@ set_fish_shell() {
             fi
         fi
         substep_info "changing shell to fish"
-        if sudo chsh -s "$fish_path" $(whoami); then
+        if sudo chsh -s "$fish_path" "$(whoami)"; then
             substep_success "changed shell to fish"
         else
             substep_error "failed changing shell to fish"

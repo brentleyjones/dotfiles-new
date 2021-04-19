@@ -1,4 +1,4 @@
-#! /usr/bin/env sh
+#!/usr/bin/env bash
 
 set -e
 
@@ -7,7 +7,7 @@ cd "${BASH_SOURCE[0]%/*}"
 source ../scripts/functions.sh
 
 # Check for Homebrew
-if test ! $(which brew); then
+if test ! "$(which brew)"; then
     info "installing Homebrew"
 
     if ! /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" </dev/null; then
@@ -16,7 +16,7 @@ if test ! $(which brew); then
 fi
 
 # Install xcodes
-if test ! $(which xcodes); then
+if test ! "$(which xcodes)"; then
     info "installing xcodes"
 
     if ! brew install robotsandpencils/made/xcodes; then
@@ -52,8 +52,8 @@ install_mas_packages() {
     if ! mas account > /dev/null; then
         substep_info "signing into the Mac App Store"
         substep_user ' - What is your Apple ID?'
-        read -e apple_id
-        if mas signin $apple_id; then
+        read -er apple_id
+        if mas signin "$apple_id"; then
             substep_success "signed into the Mac App Store"
         else
             substep_error "failed to sign into the Mac App Store"
@@ -82,16 +82,16 @@ else
     error "failed to install remaining Homebrew packages" false
 fi
 
-find * -name "*.list" | while read fn; do
+find . -name "*.list" | cut -c3- | while read -r fn; do
     cmd="${fn%.*}"
-    set -- $cmd
+    set -- "${cmd[@]}"
     info "installing $1 packages"
-    while read package; do
-        if [[ $package == $COMMENT ]]; then
+    while read -r package; do
+        if [[ -z $package ]]; then
             continue
         fi
         substep_info "installing $package"
-        if ! $cmd $package; then
+        if ! $cmd "${package[@]}"; then
             substep_error "failed to install $package"
         fi
     done < "$fn"

@@ -1,30 +1,41 @@
 #!/bin/bash
 
+set -u
+
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-"$HOME"/.config}"
+
 info () {
+  # shellcheck disable=SC2059
   printf "\r  [ \033[00;34m..\033[0m ] $1\n"
 }
 
 substep_info () {
+  # shellcheck disable=SC2059
   printf "\r  [ \033[00;34m..\033[0m ] - $1\n"
 }
 
 user () {
+  # shellcheck disable=SC2059
   printf "\r  [ \033[0;33m??\033[0m ] $1\n"
 }
 
 substep_user () {
+  # shellcheck disable=SC2059
   printf "\r  [ \033[0;33m??\033[0m ] - $1\n"
 }
 
 success () {
+  # shellcheck disable=SC2059
   printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
 }
 
 substep_success () {
+  # shellcheck disable=SC2059
   printf "\r\033[2K  [ \033[00;32mOK\033[0m ] - $1\n"
 }
 
 error () {
+  # shellcheck disable=SC2059
   printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
 
   required="$2:-true"
@@ -35,19 +46,20 @@ error () {
 }
 
 substep_error () {
+  # shellcheck disable=SC2059
   printf "\r\033[2K  [\033[0;31mFAIL\033[0m] - $1\n"
 }
 
 osx_realpath() {
   OURPWD=$PWD
-  cd "$(dirname "$1")"
+  cd "$(dirname "$1")" || exit 1
   LINK=$(readlink "$(basename "$1")")
   while [ "$LINK" ]; do
-    cd "$(dirname "$LINK")"
+    cd "$(dirname "$LINK")" || exit 1
     LINK=$(readlink "$(basename "$1")")
   done
   REALPATH="$PWD/$(basename "$1")"
-  cd "$OURPWD"
+  cd "$OURPWD" || exit 1
   echo "$REALPATH"
 }
 
@@ -56,10 +68,10 @@ overwrite_all=false backup_all=false skip_all=false
 symlink () {
   local src=$1 dst=$2
 
-  local overwrite= backup= skip=
+  local overwrite='' backup='' skip=''
   local action=
 
-  if [ -f "$dst" -o -d "$dst" -o -L "$dst" ]; then
+  if [ -f "$dst" ] || [ -d "$dst" ] || [ -L "$dst" ]; then
 
     if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]; then
 
@@ -70,7 +82,7 @@ symlink () {
       else
         substep_user "File already exists: $dst ($(basename "$src")), what do you want to do?\n\
         [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
-        read -n 1 action < /dev/tty
+        read -r -n 1 action < /dev/tty
 
         case "$action" in
           o )
@@ -118,7 +130,7 @@ symlink () {
 }
 
 clear_broken_symlinks() {
-    find -L "$1" -type l | while read fn; do
+    find -L "$1" -type l | while read -r fn; do
         if rm "$fn"; then
             substep_success "removed broken symlink at $fn"
         else

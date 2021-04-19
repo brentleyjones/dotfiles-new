@@ -4,7 +4,7 @@
 
 set -e
 
-cd "$(dirname "$0")"
+cd "$(dirname "$0")" || exit 1
 
 # find the backups and run them iteratively
-find . -name backup.sh | while read backup ; do sh -c "${backup}" ; done
+find . -name backup.sh -not -path './backup.sh' | while read -r backup ; do sh -c "${backup}" ; done

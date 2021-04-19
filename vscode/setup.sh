@@ -2,7 +2,7 @@
 
 set -uo pipefail
 
-cd "${BASH_SOURCE[0]%/*}"
+cd "${BASH_SOURCE[0]%/*}" || exit 1
 
 source ../scripts/functions.sh
 
@@ -13,7 +13,7 @@ dst="$(osx_realpath ~/Library/Application\ Support/Code/User)"
 
 info "setting up Visual Studio Code"
 
-find * -name "*.json" | while read fn; do
+find . -name "*.json" | cut -c3- | while read -r fn; do
     symlink "$src/$fn" "$dst/$fn"
 done
 clear_broken_symlinks "$dst"

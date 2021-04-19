@@ -21,9 +21,9 @@ setup_gitconfig () {
     fi
 
     user ' - What is your github author name?'
-    read -e git_authorname
+    read -er git_authorname
     user ' - What is your github author email?'
-    read -e git_authoremail
+    read -er git_authoremail
 
     sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.symlink.example > git/gitconfig.symlink
 
@@ -65,7 +65,7 @@ install_dotfiles
 ./packages/setup.sh
 
 # Run the rest of the setups
-find * -name "setup.sh" -not -wholename "packages*" | while read setup; do
+find . -name "setup.sh" -not -wholename "packages*" | cut -c3- | while read -r setup; do
     "./$setup" || true
 done
 
