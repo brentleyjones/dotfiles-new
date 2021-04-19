@@ -1,0 +1,28 @@
+#!/bin/bash
+
+set -euo pipefail
+
+if [[ -n "${USE_BAZEL_VERSION:-}" ]]; then
+  if command -v bazelisk > /dev/null; then
+    exec bazelisk "$@"
+  else
+    echo "error: no bazelisk found"
+    exit 1
+  fi
+fi
+
+readonly bazelw="$(git rev-parse --show-toplevel 2>&1)/bazelw"
+if [[ -e "$bazelw" ]]; then
+  exec "$bazelw" "$@"
+fi
+
+if command -v bazelisk > /dev/null; then
+  exec bazelisk "$@"
+fi
+
+if command -v bazel > /dev/null; then
+  exec bazel "$@"
+fi
+
+echo "error: no bazel found"
+exit 1
