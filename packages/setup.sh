@@ -75,16 +75,8 @@ else
     error "failed to install Mac App Store apps" false
 fi
 
-install_other_brew_packages() {
-    if brew bundle --file Brewfile-required; then
-        substep_success "finished installing remaining Brewfile packages"
-    else
-        substep_error "failed to install remaining Brewfile packages"
-    fi
-}
-
 info "installing remaining Homebrew packages"
-if brew bundle --file Brewfile-required; then
+if brew bundle --file Brewfile; then
     success "finished installing remaining Homebrew packages"
 else
     error "failed to install remaining Homebrew packages" false
