@@ -6,6 +6,7 @@ function setup -d 'Sets initial state for Fish'
 
     # Global env variables
     set -Ux EDITOR 'code -w'
+    set -Ux BAT_THEME 'GitHub'
 
     # Abbreviations
     for abbreviation in (abbr -l)
