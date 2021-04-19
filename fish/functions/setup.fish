@@ -7,6 +7,7 @@ function setup -d 'Sets initial state for Fish'
     # Global env variables
     set -Ux EDITOR 'code -w'
     set -Ux BAT_THEME 'GitHub'
+    set -Ux FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 
     # Abbreviations
     for abbreviation in (abbr -l)
