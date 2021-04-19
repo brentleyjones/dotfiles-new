@@ -14,5 +14,5 @@ function setup -d 'Sets initial state for Fish'
     source "$XDG_CONFIG_HOME/fish/functions/set_abbr.fish"
 
     # Plugins
-    fisher
+    curl -sL https://git.io/fisher | source && fisher update
 end

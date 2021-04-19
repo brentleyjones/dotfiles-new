@@ -19,7 +19,7 @@ substep_info "creating fish config folders"
 mkdir -p "$dst/functions"
 mkdir -p "$dst/completions"
 
-find * -name "*.fish" -o -name "fishfile" | while read fn; do
+find * -name "*.fish" -o -name "fish_plugins" | while read fn; do
     symlink "$src/$fn" "$dst/$fn"
 done
 clear_broken_symlinks "$dst"
