@@ -16,6 +16,7 @@ brew "git"
 brew "git-lfs"
 brew "grc"
 brew "grpcurl"
+brew "neovim", args: ["HEAD"]
 brew "node"
 brew "ripgrep"
 brew "keith/formulae/tag"
