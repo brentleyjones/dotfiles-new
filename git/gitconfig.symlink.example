@@ -14,9 +14,9 @@
 [core]
         excludesfile = ~/.gitignore
         editor = nano
-	pager = diff-so-fancy | less --tabs=4 -RXF
+	pager = diff-so-fancy | less --tabs=4 -RF -+X
 [interactive]
-	diffFilter = diff-highlight | less --tabs=4 -RXF
+	diffFilter = diff-so-fancy --patch
 [apply]
         whitespace = nowarn
 [mergetool "Kaleidoscope"]
