@@ -64,7 +64,8 @@
     "npm.enableScriptExplorer": true,
 
     "python.languageServer": "Pylance",
-    "python.linting.enabled": false,
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
     "python.showStartPage": false,
     "python.pythonPath": "/usr/bin/python3",
 
