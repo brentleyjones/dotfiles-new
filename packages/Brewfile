@@ -18,6 +18,7 @@ brew "grc"
 brew "grpcurl"
 brew "node"
 brew "ripgrep"
+brew "keith/formulae/tag"
 brew "the_silver_searcher"
 brew "tree"
 
