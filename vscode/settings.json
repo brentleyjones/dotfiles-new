@@ -44,6 +44,9 @@
 
     // Language specific settings
 
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
     "[feature]": {
         "editor.detectIndentation": false,
         "editor.tabSize": 2
