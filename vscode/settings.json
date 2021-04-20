@@ -52,6 +52,11 @@
         "editor.tabSize": 2
     },
 
+    "bazel.enableCodeLens": true,
+    "bazel.executable": "bz",
+    "bazel.queriesShareServer": true,
+    "bsv.bazelrc.run.executable": "bz",
+    
     "java.requirements.JDK11Warning": false,
 
     "javascript.implicitProjectConfig.checkJs": true,
