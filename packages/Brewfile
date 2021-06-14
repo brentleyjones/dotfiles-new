@@ -16,6 +16,7 @@ brew "git"
 brew "git-lfs"
 brew "grc"
 brew "grpcurl"
+brew "hyperfine"
 brew "less" # newer to allow better -F handling
 brew "neovim", args: ["HEAD"]
 brew "node"
