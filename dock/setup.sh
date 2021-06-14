@@ -30,20 +30,14 @@ set_dock() {
     substep_info "adding Downloads folder"
     dockutil --add '~/Downloads' --display folder --view fan --section others --sort datemodified --no-restart
 
-    substep_info "adding Outlook"
-    dockutil --add '/Applications/Microsoft Outlook.app' --no-restart
-
     substep_info "adding Safari"
     dockutil --add /Applications/Safari.app --no-restart
 
-    substep_info "adding Safari"
+    substep_info "adding Slack"
     dockutil --add /Applications/Slack.app --no-restart
 
     substep_info "adding Messages"
     dockutil --add /System/Applications/Messages.app --no-restart
-
-    substep_info "adding Zoom"
-    dockutil --add /Applications/zoom.us.app --no-restart
 
     substep_info "adding OmniFocus"
     dockutil --add /Applications/OmniFocus.app --no-restart
@@ -57,11 +51,11 @@ set_dock() {
     substep_info "adding Tower"
     dockutil --add /Applications/Tower.app --no-restart
 
-    substep_info "adding Xcode"
-    dockutil --add /Applications/Xcode.app --no-restart
-
     substep_info "adding Visual Studio Code"
     dockutil --add '/Applications/Visual Studio Code.app' --no-restart
+
+    substep_info "adding Xcode"
+    dockutil --add /Applications/Xcode.app --no-restart
 
     substep_info "restarting dock"
     killall Dock
