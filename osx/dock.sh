@@ -11,9 +11,9 @@ info "setting up the dock"
 set_dock() {
     if test ! "$(which dockutil)"; then
         substep_info "installing dockutil"
-        sudo installer -pkg ~/.dotfiles/dock/dockutil-2.0.5.pkg -target /
+        sudo installer -pkg ~/.dotfiles/osx/dockutil-2.0.5.pkg -target /
 
-        if sudo installer -pkg ~/.dotfiles/dock/dockutil-2.0.5.pkg -target /; then
+        if sudo installer -pkg ~/.dotfiles/osx/dockutil-2.0.5.pkg -target /; then
             substep_success "installed dockutil"
         else
             substep_error "failed to install docutil"
