@@ -7,6 +7,7 @@ cask_args appdir: "/Applications"
 
 brew "aria2"
 brew "bat"
+brew "bazelisk"
 brew "clang-format"
 brew "diff-so-fancy"
 brew "fd"
