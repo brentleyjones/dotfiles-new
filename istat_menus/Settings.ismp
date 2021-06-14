@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>build</key>
-	<string>1113</string>
+	<string>1157</string>
 	<key>preferences</key>
 	<dict>
 		<key>CPU_AppFormat</key>
@@ -124,78 +124,9 @@
 		<key>DropdownTheme</key>
 		<integer>0</integer>
 		<key>FanControl_Sets</key>
-		<array>
-			<dict>
-				<key>model</key>
-				<string>MacBookPro14,3</string>
-				<key>name</key>
-				<string>Medium</string>
-				<key>speeds</key>
-				<array>
-					<dict>
-						<key>fan</key>
-						<string>F0Ac</string>
-						<key>high</key>
-						<integer>5927</integer>
-						<key>low</key>
-						<integer>2160</integer>
-						<key>percentage</key>
-						<integer>50</integer>
-						<key>speed</key>
-						<integer>4043</integer>
-					</dict>
-					<dict>
-						<key>fan</key>
-						<string>F1Ac</string>
-						<key>high</key>
-						<integer>5489</integer>
-						<key>low</key>
-						<integer>2000</integer>
-						<key>percentage</key>
-						<integer>50</integer>
-						<key>speed</key>
-						<integer>3744</integer>
-					</dict>
-				</array>
-				<key>uuid</key>
-				<string>0B547F14-79D4-4F39-A751-6C74CA5ECEA3</string>
-			</dict>
-			<dict>
-				<key>model</key>
-				<string>MacBookPro14,3</string>
-				<key>name</key>
-				<string>High</string>
-				<key>speeds</key>
-				<array>
-					<dict>
-						<key>fan</key>
-						<string>F0Ac</string>
-						<key>high</key>
-						<integer>5927</integer>
-						<key>low</key>
-						<integer>2160</integer>
-						<key>percentage</key>
-						<integer>100</integer>
-						<key>speed</key>
-						<integer>5927</integer>
-					</dict>
-					<dict>
-						<key>fan</key>
-						<string>F1Ac</string>
-						<key>high</key>
-						<integer>5489</integer>
-						<key>low</key>
-						<integer>2000</integer>
-						<key>percentage</key>
-						<integer>100</integer>
-						<key>speed</key>
-						<integer>5489</integer>
-					</dict>
-				</array>
-				<key>uuid</key>
-				<string>D2E5A1F5-41ED-4829-B5A1-F2FB00178D0C</string>
-			</dict>
-		</array>
+		<array/>
+		<key>Menubar-DetectedColor</key>
+		<string>1.00 1.00 1.00 0.90</string>
 		<key>MenubarSkinColor</key>
 		<integer>0</integer>
 		<key>MenubarTheme</key>
@@ -204,6 +135,12 @@
 		<true/>
 		<key>Migrated_6.22</key>
 		<true/>
+		<key>Migrated_6.5</key>
+		<true/>
+		<key>Network_DataFormat</key>
+		<integer>2</integer>
+		<key>Network_DropdownCombineBandwidth</key>
+		<integer>1</integer>
 		<key>Network_DropdownOrderDisabled</key>
 		<string>inactive</string>
 		<key>Network_GraphMode</key>
@@ -212,9 +149,15 @@
 		<array>
 			<dict>
 				<key>key</key>
+				<string>100</string>
+				<key>uuid</key>
+				<string>08E7D2A9-D602-4F5B-8C12-DE26F092E387</string>
+			</dict>
+			<dict>
+				<key>key</key>
 				<string>0</string>
 				<key>uuid</key>
-				<string>7ED42785-01D4-42B7-84E6-03218F41E554</string>
+				<string>495303BF-FFF4-447E-9C52-AF63DD7B838B</string>
 			</dict>
 		</array>
 		<key>Notifications-Items</key>
@@ -301,6 +244,6 @@
 		</dict>
 	</dict>
 	<key>version</key>
-	<string>6.40</string>
+	<string>6.51</string>
 </dict>
 </plist>
