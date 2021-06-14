@@ -25,6 +25,7 @@ brew "the_silver_searcher"
 brew "tree"
 
 cask "1Password"
+cask "bartender"
 cask "bettertouchtool"
 cask "bitbar"
 cask "hex-fiend"
