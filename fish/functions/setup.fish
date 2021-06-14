@@ -2,7 +2,7 @@ function setup -d 'Sets initial state for Fish'
     set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME "$HOME/.config"
 
     # Paths
-    set -U fish_user_paths "$HOME/.dotfiles/bin"
+    set -U fish_user_paths "$HOME/.dotfiles/bin" "/opt/homebrew/bin"
 
     # Global env variables
     set -Ux EDITOR 'nvim'

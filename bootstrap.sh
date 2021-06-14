@@ -61,6 +61,12 @@ fi
 setup_gitconfig
 install_dotfiles
 
+# Ensure path is set correctly
+if [[ "${SHELL##*/}" == "zsh" ]]; then
+  # shellcheck source=zsh/zshenv.symlink
+  source ~/.zshenv
+fi
+
 # Package control must be executed first in order for the rest to work
 ./packages/setup.sh
 
