@@ -194,167 +194,6 @@
 			<key>Resize Width Unit</key>
 			<integer>0</integer>
 		</dict>
-		<dict>
-			<key>Action</key>
-			<integer>1001</integer>
-			<key>Apply to Overlapping Windows</key>
-			<true/>
-			<key>Auto-Trigger</key>
-			<true/>
-			<key>Auto-Trigger Display Count</key>
-			<integer>1</integer>
-			<key>Center Mode</key>
-			<integer>0</integer>
-			<key>Collapsed</key>
-			<false/>
-			<key>Confine to Display</key>
-			<false/>
-			<key>Identifier</key>
-			<string>462DEB2A-C2D7-446C-BB3B-DB55380C907C</string>
-			<key>Loop Through Displays</key>
-			<false/>
-			<key>Move Delta</key>
-			<integer>50</integer>
-			<key>Move Delta Unit</key>
-			<integer>0</integer>
-			<key>Move Direction</key>
-			<integer>5</integer>
-			<key>Move to Edge/Corner Direction</key>
-			<integer>5</integer>
-			<key>Relative Frame</key>
-			<string>{{0.16666666666666666, 0.25}, {0.66666666666666663, 0.5}}</string>
-			<key>Resize Anchor</key>
-			<integer>10</integer>
-			<key>Resize Height Unit</key>
-			<integer>0</integer>
-			<key>Resize Proportionally</key>
-			<false/>
-			<key>Resize Size</key>
-			<string>{800, 600}</string>
-			<key>Resize Width Unit</key>
-			<integer>0</integer>
-			<key>Snapshot</key>
-			<array>
-				<dict>
-					<key>Application Name</key>
-					<string>iTerm2</string>
-					<key>Available Screen Frame</key>
-					<string>{{0, 43}, {1792, 1054}}</string>
-					<key>Bundle Identifier</key>
-					<string>com.googlecode.iterm2</string>
-					<key>Screen Frame</key>
-					<string>{{0, 0}, {1792, 1120}}</string>
-					<key>Window Frame</key>
-					<string>{{0, 794}, {1792, 303}}</string>
-					<key>Window Subrole</key>
-					<string>AXStandardWindow</string>
-					<key>Window Title</key>
-					<string>fish /Users/z002wrr/Development/Target/bazel</string>
-				</dict>
-				<dict>
-					<key>Application Name</key>
-					<string>Tower</string>
-					<key>Available Screen Frame</key>
-					<string>{{0, 43}, {1792, 1054}}</string>
-					<key>Bundle Identifier</key>
-					<string>com.fournova.tower3</string>
-					<key>Screen Frame</key>
-					<string>{{0, 0}, {1792, 1120}}</string>
-					<key>Window Frame</key>
-					<string>{{0, 45}, {1792, 754}}</string>
-					<key>Window Subrole</key>
-					<string>AXStandardWindow</string>
-					<key>Window Title</key>
-					<string>ios – Bazel-3.7.0 (Counting Commits)</string>
-				</dict>
-			</array>
-			<key>Snapshot Screens</key>
-			<array>
-				<string>{{0, 0}, {1792, 1120}}</string>
-			</array>
-			<key>Title</key>
-			<string>Tower - iTerm</string>
-		</dict>
-		<dict>
-			<key>Action</key>
-			<integer>1001</integer>
-			<key>Apply to Overlapping Windows</key>
-			<false/>
-			<key>Auto-Trigger</key>
-			<true/>
-			<key>Auto-Trigger Display Count</key>
-			<integer>2</integer>
-			<key>Center Mode</key>
-			<integer>0</integer>
-			<key>Collapsed</key>
-			<false/>
-			<key>Confine to Display</key>
-			<false/>
-			<key>Identifier</key>
-			<string>24DF12C3-9C05-47F3-9572-F4632653D2B4</string>
-			<key>Loop Through Displays</key>
-			<false/>
-			<key>Move Delta</key>
-			<integer>50</integer>
-			<key>Move Delta Unit</key>
-			<integer>0</integer>
-			<key>Move Direction</key>
-			<integer>5</integer>
-			<key>Move to Edge/Corner Direction</key>
-			<integer>5</integer>
-			<key>Relative Frame</key>
-			<string>{{0.16666666666666666, 0.25}, {0.66666666666666663, 0.5}}</string>
-			<key>Resize Anchor</key>
-			<integer>10</integer>
-			<key>Resize Height Unit</key>
-			<integer>0</integer>
-			<key>Resize Proportionally</key>
-			<false/>
-			<key>Resize Size</key>
-			<string>{800, 600}</string>
-			<key>Resize Width Unit</key>
-			<integer>0</integer>
-			<key>Snapshot</key>
-			<array>
-				<dict>
-					<key>Application Name</key>
-					<string>iTerm2</string>
-					<key>Available Screen Frame</key>
-					<string>{{0, 43}, {2560, 1374}}</string>
-					<key>Bundle Identifier</key>
-					<string>com.googlecode.iterm2</string>
-					<key>Screen Frame</key>
-					<string>{{0, 0}, {2560, 1440}}</string>
-					<key>Window Frame</key>
-					<string>{{1681, 43}, {878, 1374}}</string>
-					<key>Window Subrole</key>
-					<string>AXStandardWindow</string>
-					<key>Window Title</key>
-					<string>fish /Users/z002wrr/Development/Target/Harmony-iOS</string>
-				</dict>
-				<dict>
-					<key>Application Name</key>
-					<string>Tower</string>
-					<key>Available Screen Frame</key>
-					<string>{{0, 43}, {2560, 1374}}</string>
-					<key>Bundle Identifier</key>
-					<string>com.fournova.tower3</string>
-					<key>Screen Frame</key>
-					<string>{{0, 0}, {2560, 1440}}</string>
-					<key>Window Frame</key>
-					<string>{{0, 43}, {1680, 1374}}</string>
-					<key>Window Subrole</key>
-					<string>AXStandardWindow</string>
-					<key>Window Title</key>
-					<string>Harmony-iOS – master, origin/master (Counting Commits)</string>
-				</dict>
-			</array>
-			<key>Snapshot Screens</key>
-			<array>
-				<string>{{0, 0}, {2560, 1440}}</string>
-				<string>{{-1440, -274}, {1440, 900}}</string>
-			</array>
-		</dict>
 	</array>
 	<key>Keyboard Controls</key>
 	<dict>
@@ -370,8 +209,19 @@
 	<key>NSStatusItem Preferred Position Item-0</key>
 	<real>688</real>
 	<key>NSStatusItem Preferred Position com.manytricks.Moom.StatusItem</key>
-	<real>688</real>
+	<real>5991</real>
 	<key>NSToolbar Configuration Preferences (App Store) 3174</key>
+	<dict>
+		<key>TB Display Mode</key>
+		<integer>1</integer>
+		<key>TB Icon Size Mode</key>
+		<integer>1</integer>
+		<key>TB Is Shown</key>
+		<integer>1</integer>
+		<key>TB Size Mode</key>
+		<integer>1</integer>
+	</dict>
+	<key>NSToolbar Configuration Preferences (Independent) 3174</key>
 	<dict>
 		<key>TB Display Mode</key>
 		<integer>1</integer>
@@ -384,6 +234,23 @@
 	</dict>
 	<key>NSWindow Frame PMHelpManager: Moom Help</key>
 	<string>440 174 800 822 0 0 1680 1027 </string>
+	<key>NSWindow Frame SUStatusFrame</key>
+	<string>1078 -449 384 135 0 -1440 2560 1415 </string>
+	<key>PMSparkleWrapper Status</key>
+	<dict>
+		<key>Check Date</key>
+		<integer>1623692938</integer>
+		<key>Current Version</key>
+		<string>3.2.22</string>
+		<key>Update Version</key>
+		<string></string>
+	</dict>
+	<key>SUEnableAutomaticChecks</key>
+	<true/>
+	<key>SUHasLaunchedBefore</key>
+	<true/>
+	<key>SULastCheckTime</key>
+	<date>2021-06-14T17:48:58Z</date>
 	<key>Stealth Mode</key>
 	<true/>
 </dict>
