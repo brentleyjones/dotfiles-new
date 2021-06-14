@@ -71,7 +71,7 @@ fi
 ./packages/setup.sh
 
 # Run the rest of the setups
-find . -name "setup.sh" -not -wholename "packages*" | cut -c3- | while read -r setup; do
+find . -name "setup.sh" -not -wholename "*/packages/*" | cut -c3- | while read -r setup; do
     "./$setup" || true
 done
 

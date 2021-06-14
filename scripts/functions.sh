@@ -38,7 +38,7 @@ error () {
   # shellcheck disable=SC2059
   printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
 
-  required="$2:-true"
+  required="${2:-true}"
   if [ "$required" == "true" ]; then
     echo ''
     exit 1
