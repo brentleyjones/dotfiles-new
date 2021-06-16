@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -uo pipefail
+set -euo pipefail
 
 cd "${BASH_SOURCE[0]%/*}" || exit 1
 

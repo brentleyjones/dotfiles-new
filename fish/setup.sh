@@ -4,7 +4,7 @@
 #
 # This sets up Fish as the default shell and symlinks files to the correct spots in $XDG_CONFIG_HOME/fish/.
 
-set -uo pipefail
+set -euo pipefail
 
 cd "${BASH_SOURCE[0]%/*}" || exit 1
 
