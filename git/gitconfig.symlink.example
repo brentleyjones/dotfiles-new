@@ -50,3 +50,10 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[branch "master"]
+        # Prevent pushing to master
+        pushRemote = NOPE
+[branch "main"]
+        # Prevent pushing to main
+        pushRemote = NOPE
+
