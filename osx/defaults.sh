@@ -378,7 +378,7 @@ defaults write -app Tower GTUserDefaultsDialogueOptionPullUseRebase -bool false
 defaults write -app Tower GTUserDefaultsDialogueOptionPushPushAllTags -bool false
 defaults write -app Tower GTUserDefaultsDialogueOptionRevertAlwaysGenerateMergeCommit -bool true
 defaults write -app Tower GTUserDefaultsDiffToolIdentifier -string kaleidoscope
-defaults write -app Tower GTUserDefaultsHistoryGraphCommitViewSize -int 2
+defaults write -app Tower GTUserDefaultsHistoryGraphCommitViewSize -int 1
 defaults write -app Tower GTUserDefaultsHistoryGroupingType -int 1
 defaults write -app Tower GTUserDefaultsHistoryShowGraph -bool true
 defaults write -app Tower GTUserDefaultsMergeToolIdentifier -string kaleidoscope
