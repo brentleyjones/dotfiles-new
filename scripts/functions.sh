@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -u
+set -eu
 
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-"$HOME"/.config}"
 
@@ -75,7 +75,8 @@ symlink () {
 
     if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]; then
 
-      local currentSrc="$(readlink "$dst")"
+      local currentSrc
+      currentSrc="$(readlink "$dst")"
 
       if [ "$currentSrc" == "$src" ]; then
         skip=true;

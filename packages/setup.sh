@@ -2,7 +2,7 @@
 
 set -e
 
-cd "${BASH_SOURCE[0]%/*}"
+cd "${BASH_SOURCE[0]%/*}" || exit 1
 
 source ../scripts/functions.sh
 
