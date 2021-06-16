@@ -10,6 +10,8 @@ cd "${BASH_SOURCE[0]%/*}" || exit 1
 
 source ../scripts/functions.sh
 
+mkdir -p "$XDG_CONFIG_HOME"
+
 src="$(osx_realpath .)"
 dst="$(osx_realpath "$XDG_CONFIG_HOME/fish")"
 
