@@ -283,6 +283,12 @@ defaults write com.apple.dt.Xcode ShowDVTDebugMenu -bool true
 # Applications                                                                #
 ###############################################################################
 
+# 1Password
+defaults write -app "1Password 7" LockOnIdle -bool false
+defaults write -app "1Password 7" LockOnScreenSaver -bool false
+defaults write -app "1Password 7" LockOnSleep -bool false
+defaults write -app "1Password 7" LockOnUserSwitch -bool false
+
 # Kaleidoscope
 defaults write -app Kaleidoscope KS2UpTextScopeViewControllerDefaultsInitialDetailControllerClassNameKey -int 1
 defaults write -app Kaleidoscope KS3UpTextScopeViewControllerDefaultsInitialDetailControllerClassNameKey -int 1
