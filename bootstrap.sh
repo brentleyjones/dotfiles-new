@@ -70,6 +70,9 @@ fi
 # Package control must be executed first in order for the rest to work
 ./packages/setup.sh
 
+# Ensure fonts are downloaded
+git-lfs pull
+
 # Run the rest of the setups
 setups=()
 while IFS=  read -r -d $'\0'; do
