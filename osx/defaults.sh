@@ -374,7 +374,7 @@ defaults write -app iTerm UseBorder -bool false
 
 # Tower
 defaults write -app Tower GTUserDefaultsAlwaysAutoUpdateSubmodules -bool true
-defaults write -app Tower GTUserDefaultsDefaultCloningDirectory -string "$HOME/Development"
+defaults write -app Tower GTUserDefaultsDefaultCloningDirectory -string "$HOME/Developer"
 defaults write -app Tower GTUserDefaultsDialogueOptionCheckoutCreatedBranch -bool true
 defaults write -app Tower GTUserDefaultsDialogueOptionCheckoutCreatedBranch -bool true
 defaults write -app Tower GTUserDefaultsDialogueOptionCherryPickAlwaysGenerateMergeCommit -bool true
