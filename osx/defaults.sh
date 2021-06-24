@@ -2,6 +2,10 @@
 
 # Sets reasonable OS X defaults.
 
+cd "${BASH_SOURCE[0]%/*}" || exit 1
+
+source ../scripts/functions.sh
+
 # Quit System Preferences so it doesn't muck with your settings
 osascript -e 'tell application "System Preferences" to quit'
 
@@ -239,7 +243,23 @@ defaults write -app Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2D
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
 # Customize toolbar
-defaults write -app Safari "NSToolbar Configuration BrowserToolbarIdentifier-v2" -dict-add "TB Item Identifiers" '(BackForwardToolbarIdentifier,NSToolbarFlexibleSpaceItem,InputFieldsToolbarIdentifier,NSToolbarFlexibleSpaceItem,"com.agilebits.onepassword4-safari-2BUA8C4S2C onepassword",ShowDownloadsToolbarIdentifier,TabPickerToolbarIdentifier)'
+readonly safari_toolbar_items=(
+	"SidebarToolbarIdentifier"
+	"BackForwardToolbarIdentifier"
+	"NSToolbarFlexibleSpaceItem"
+	"PrivacyReportToolbarIdentifier"
+	"InputFieldsToolbarIdentifier"
+	"'com.agilebits.onepassword7.1PasswordSafariAppExtension (2BUA8C4S2C) Button'"
+	"NSToolbarFlexibleSpaceItem"
+	"ShowDownloadsToolbarIdentifier"
+	"ShareToolbarIdentifier"
+	"NewTabToolbarIdentifier"
+	"TabPickerToolbarIdentifier"
+)
+
+defaults write -app Safari OrderedToolbarItemIdentifiers -array "${safari_toolbar_items[@]}"
+defaults write -app Safari "NSToolbar Configuration BrowserToolbarIdentifier-v2" -dict-add "TB Item Identifiers" "($(join_by , "${safari_toolbar_items[@]}"))"
+defaults write -app Safari "NSToolbar Configuration BrowserToolbarIdentifier-v3.1" -dict-add "TB Item Identifiers" "($(join_by , "${safari_toolbar_items[@]}"))"
 
 ###############################################################################
 # Activity Monitor                                                            #

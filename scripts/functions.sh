@@ -139,3 +139,12 @@ clear_broken_symlinks() {
         fi
     done
 }
+
+join_by() {
+  local d=${1-}
+  local f=${2-}
+
+  if shift 2; then
+    printf %s "$f" "${@/#/$d}"
+  fi
+}
