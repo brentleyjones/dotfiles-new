@@ -77,6 +77,14 @@ defaults write com.apple.touchbar.agent PresentationModeFnModes '{
 # Function keys on external keyboard are shortcuts
 defaults write NSGlobalDomain com.apple.keyboard.fnState -bool false
 
+# Remap caps-lock to escape
+hidutil property --set '{
+  "UserKeyMapping":[{
+    "HIDKeyboardModifierMappingSrc":0x700000039,
+    "HIDKeyboardModifierMappingDst":0x700000029
+  }]
+}' > /dev/null
+
 ###############################################################################
 # Screen                                                                      #
 ###############################################################################
