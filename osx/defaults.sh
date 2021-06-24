@@ -415,12 +415,12 @@ defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
 
 defaults write -app 'Microsoft Outlook' 'viewIndividualPrefs.Calendar Grid View' '{
 	OLViewPrefCalendarViewTypeKey = OLViewPrefCalendarViewTypeWorkWeekValue;
-}'
+}' || true
 
 # Kill all affected apps
 
 sleep 1
 for app in "Activity Monitor" "cfprefsd" "Dock" "Fantastical" "Finder" "Mail" "Kaleidoscope" "Microsoft Outlook" "Safari" "Tower" "SystemUIServer"; do
-	killall "${app}" > /dev/null 2>&1
+	killall "${app}" > /dev/null 2>&1 || true
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
