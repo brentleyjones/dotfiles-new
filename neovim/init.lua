@@ -4,5 +4,6 @@ if not vim.g.vscode then
   require('settings')
   require('plugin_settings')
 else
-  require('vscode')
+  require('vscode_plugins')
+  require('vscode_settings')
 end
