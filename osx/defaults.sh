@@ -2,6 +2,9 @@
 
 # Sets reasonable OS X defaults.
 
+# Quit System Preferences so it doesn't muck with your settings
+osascript -e 'tell application "System Preferences" to quit'
+
 ###############################################################################
 # General UI/UX                                                               #
 ###############################################################################
