@@ -109,6 +109,7 @@
     "markdown.extension.toc.updateOnSave": false,
     "markdown.extension.italic.indicator": "_",
 
+    "python.defaultInterpreterPath": "/usr/bin/python3",
     "python.languageServer": "Pylance",
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
