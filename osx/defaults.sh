@@ -320,12 +320,18 @@ defaults write -app "1Password 7" LockOnScreenSaver -bool false
 defaults write -app "1Password 7" LockOnSleep -bool false
 defaults write -app "1Password 7" LockOnUserSwitch -bool false
 
+# Fantastical
+defaults write -app Fantastical HideDockIcon -bool true
+
 # Kaleidoscope
 defaults write -app Kaleidoscope KS2UpTextScopeViewControllerDefaultsInitialDetailControllerClassNameKey -int 1
 defaults write -app Kaleidoscope KS3UpTextScopeViewControllerDefaultsInitialDetailControllerClassNameKey -int 1
 
-# iTerm2
-defaults write -app iTerm OnlyWhenMoreTabs -bool false
+# iTerm 2
+defaults write -app iTerm DimBackgroundWindows -bool true
+defaults write -app iTerm DimInactiveSplitPanes -bool true
+defaults write -app iTerm DimOnlyText -bool true
+defaults write -app iTerm DisableFullscreenTransparency -bool true
 defaults write -app iTerm GlobalKeyMap '{
 "0x19-0x60000" = {
 		Action = 39;
@@ -383,16 +389,8 @@ defaults write -app iTerm GlobalKeyMap '{
 		Text = "";
 	};
 }'
-
-# Fantastical
-defaults write -app Fantastical HideDockIcon -bool true
-
-# iTerm 2
-defaults write -app iTerm DimBackgroundWindows -bool true
-defaults write -app iTerm DimInactiveSplitPanes -bool true
-defaults write -app iTerm DimOnlyText -bool true
-defaults write -app iTerm DisableFullscreenTransparency -bool true
 defaults write -app iTerm HideTab -bool true
+defaults write -app iTerm OnlyWhenMoreTabs -bool false
 defaults write -app iTerm PromptOnQuit -bool false
 defaults write -app iTerm SUEnableAutomaticChecks -bool true
 defaults write -app iTerm SeparateStatusBarsPerPane -bool true
@@ -433,7 +431,6 @@ defaults write -app Tower SUScheduledCheckInterval -int 86400
 defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
 
 # Outlook
-
 defaults write -app 'Microsoft Outlook' 'viewIndividualPrefs.Calendar Grid View' '{
 	OLViewPrefCalendarViewTypeKey = OLViewPrefCalendarViewTypeWorkWeekValue;
 }' || true
