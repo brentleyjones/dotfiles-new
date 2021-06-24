@@ -22,6 +22,7 @@ brew "less" # newer to allow better -F handling
 brew "neovim", args: ["HEAD"]
 brew "node"
 brew "ripgrep"
+brew "shellcheck"
 brew "keith/formulae/tag"
 brew "the_silver_searcher"
 brew "tree"
