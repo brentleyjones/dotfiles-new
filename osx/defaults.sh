@@ -341,7 +341,8 @@ defaults write -app Fantastical HideDockIcon -bool true
 defaults write -app Kaleidoscope KS2UpTextScopeViewControllerDefaultsInitialDetailControllerClassNameKey -int 1
 defaults write -app Kaleidoscope KS3UpTextScopeViewControllerDefaultsInitialDetailControllerClassNameKey -int 1
 
-# iTerm 2
+# iTerm
+defaults write -app iTerm AlternateMouseScroll -bool true
 defaults write -app iTerm DimBackgroundWindows -bool true
 defaults write -app iTerm DimInactiveSplitPanes -bool true
 defaults write -app iTerm DimOnlyText -bool true
