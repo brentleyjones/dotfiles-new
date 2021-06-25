@@ -13,7 +13,7 @@
         ui = true
 [core]
         excludesfile = ~/.gitignore
-        editor = nano
+        editor = nvim
 	pager = diff-so-fancy | less --tabs=4 -RF -+X
 [interactive]
 	diffFilter = diff-so-fancy --patch
@@ -56,4 +56,3 @@
 [branch "main"]
         # Prevent pushing to main
         pushRemote = NOPE
-
