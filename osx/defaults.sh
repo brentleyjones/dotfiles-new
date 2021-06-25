@@ -204,6 +204,17 @@ defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool true
 defaults write com.apple.dock showhidden -bool true
 
 ###############################################################################
+# Menubar                                                                     #
+###############################################################################
+
+defaults write com.apple.menuextra.clock DateFormat -string "h:mm a"
+defaults write com.apple.menuextra.clock Show24Hour -bool false
+defaults write com.apple.menuextra.clock ShowAMPM -bool true
+defaults write com.apple.menuextra.clock ShowDayOfMonth -bool false
+defaults write com.apple.menuextra.clock ShowDayOfWeek -bool false
+defaults write com.apple.menuextra.clock ShowSeconds -bool false
+
+###############################################################################
 # Safari & WebKit                                                             #
 ###############################################################################
 
@@ -445,7 +456,7 @@ defaults write -app Paste kPSTPreferencesShowMenuBarIcon -bool false
 # Kill all affected apps
 
 sleep 1
-for app in "Activity Monitor" "BitBar" "cfprefsd" "Dock" "Fantastical" "Finder" "Mail" "Kaleidoscope" "Microsoft Outlook" "Safari" "Tower" "SystemUIServer"; do
+for app in "Activity Monitor" "BitBar" "cfprefsd" "ControlCenter" "Dock" "Fantastical" "Finder" "Mail" "Kaleidoscope" "Microsoft Outlook" "Safari" "Tower" "SystemUIServer"; do
 	killall "${app}" > /dev/null 2>&1 || true
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>build</key>
-	<string>1157</string>
+	<string>1164</string>
 	<key>preferences</key>
 	<dict>
 		<key>CPU_AppFormat</key>
@@ -220,18 +220,40 @@
 		</array>
 		<key>Theme-SeperateStyles</key>
 		<false/>
+		<key>Time_Cities</key>
+		<array>
+			<dict>
+				<key>city</key>
+				<string>Current Location</string>
+				<key>identifier</key>
+				<string>-7</string>
+			</dict>
+			<dict>
+				<key>city</key>
+				<string>San Francisco</string>
+				<key>country</key>
+				<string>United States</string>
+				<key>identifier</key>
+				<integer>5391959</integer>
+				<key>latitude</key>
+				<real>37.774929999999998</real>
+				<key>longitude</key>
+				<real>-122.41942</real>
+				<key>state</key>
+				<string>California</string>
+				<key>timezone</key>
+				<string>America/Los_Angeles</string>
+			</dict>
+		</array>
 		<key>Time_MenubarFormat</key>
 		<array>
 			<dict>
 				<key>format</key>
 				<array>
 					<array>
-						<string>EE</string>
-						<string>' '</string>
-						<string>hh</string>
-						<string>:</string>
-						<string>mm</string>
+						<string>___ICON__RED___</string>
 					</array>
+					<array/>
 				</array>
 			</dict>
 		</array>
