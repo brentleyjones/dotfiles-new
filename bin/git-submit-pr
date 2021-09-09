@@ -53,6 +53,8 @@ if ! git -C "$worktree_dir" cherry-pick "$commit"; then
   fi
 fi
 
+trap '_checkout_empty' EXIT
+
 if git -C "$worktree_dir" push --quiet --set-upstream origin "$branch_name"; then
   gh pr create --draft --fill --base "$remote_branch_name" --head "$branch_name"
 elif git -C "$worktree_dir" push --quiet --set-upstream mine "$branch_name"; then
@@ -61,5 +63,3 @@ else
   echo "error: failed to create remote branch" >&2
   git branch -d "$branch_name"
 fi
-
-_checkout_empty
