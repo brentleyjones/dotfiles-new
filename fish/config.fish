@@ -9,3 +9,6 @@ set -gx FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height=90% --previ
 if test -e "$XDG_CONFIG_HOME/fish/localconfig.fish"
     source "$XDG_CONFIG_HOME/fish/localconfig.fish"
 end
+
+test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+
