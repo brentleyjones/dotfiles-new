@@ -19,7 +19,7 @@ brew "grc"
 brew "grpcurl"
 brew "hyperfine"
 brew "less" # newer to allow better -F handling
-brew "neovim", args: ["HEAD"]
+brew "neovim"
 brew "node"
 brew "ripgrep"
 brew "shellcheck"
