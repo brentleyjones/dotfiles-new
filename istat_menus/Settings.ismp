@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>build</key>
-	<string>1164</string>
+	<string>1177</string>
 	<key>preferences</key>
 	<dict>
 		<key>CPU_AppFormat</key>
@@ -104,8 +104,6 @@
 				<true/>
 				<key>key</key>
 				<string>52CA78C4-A31D-37C8-B33F-B5CC45D58A24</string>
-				<key>name</key>
-				<string>Macintosh HD</string>
 			</dict>
 		</array>
 		<key>Disks_MenubarMode</key>
@@ -136,6 +134,10 @@
 		<key>Migrated_6.22</key>
 		<true/>
 		<key>Migrated_6.5</key>
+		<true/>
+		<key>Migrated_6.52</key>
+		<true/>
+		<key>Migrated_6.60_ARM</key>
 		<true/>
 		<key>Network_DataFormat</key>
 		<integer>2</integer>
@@ -199,6 +201,8 @@
 				<string>10.00</string>
 			</dict>
 		</array>
+		<key>Sensors-Limits-Updated</key>
+		<true/>
 		<key>Sensors_MenubarMode</key>
 		<array>
 			<dict>
@@ -212,6 +216,7 @@
 		<integer>0</integer>
 		<key>StatusItems-Order</key>
 		<array>
+			<integer>7</integer>
 			<integer>4</integer>
 			<integer>5</integer>
 			<integer>2</integer>
@@ -263,9 +268,21 @@
 		<dict>
 			<key>1113</key>
 			<string>1</string>
+			<key>1176</key>
+			<string>1</string>
+		</dict>
+		<key>Zarya-TLE</key>
+		<dict>
+			<key>time</key>
+			<real>1635194434.5817389</real>
+			<key>tle</key>
+			<string>ISS (ZARYA)
+1 25544U 98067A   21298.50904580  .00003152  00000-0  65828-4 0  9997
+2 25544  51.6444  58.3286 0003927 136.0931 322.0421 15.48789637308791
+</string>
 		</dict>
 	</dict>
 	<key>version</key>
-	<string>6.51</string>
+	<string>6.60</string>
 </dict>
 </plist>
