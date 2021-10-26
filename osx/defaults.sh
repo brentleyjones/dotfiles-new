@@ -251,7 +251,7 @@ defaults write -app Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write -app Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
 
 # Remove colored tab backgrounds
-defaults write -app Safari NeverUseBackgroundColorInToolbar - bool true
+defaults write -app Safari NeverUseBackgroundColorInToolbar -bool true
 
 # Add a context menu item for showing the Web Inspector in web views
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
