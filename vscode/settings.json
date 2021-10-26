@@ -34,6 +34,7 @@
     "terminal.integrated.drawBoldTextInBrightColors": false,
     "terminal.integrated.fontFamily": "SFMono Nerd Font, SFMono, Menlo, Monaco, Courier New, monospace",
     "terminal.integrated.fontSize": 13,
+    "terminal.integrated.enableBell": true,
     "workbench.colorCustomizations": {
         "terminal.background":"#ffffff",
         "terminal.foreground":"#000000",
