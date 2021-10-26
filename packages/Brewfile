@@ -23,7 +23,6 @@ brew "neovim"
 brew "node"
 brew "ripgrep"
 brew "shellcheck"
-brew "keith/formulae/tag"
 brew "the_silver_searcher"
 brew "tree"
 
