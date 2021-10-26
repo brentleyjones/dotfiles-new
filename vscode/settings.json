@@ -91,6 +91,9 @@
         "editor.detectIndentation": false,
         "editor.tabSize": 2
     },
+    "[shellscript]": {
+        "editor.tabSize": 2
+    },
     "[swift]": {
         "files.trimTrailingWhitespace": false
     },
