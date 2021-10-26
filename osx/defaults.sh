@@ -449,11 +449,6 @@ defaults write -app Tower SUScheduledCheckInterval -int 86400
 # Tweetbot
 defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
 
-# Outlook
-defaults write -app 'Microsoft Outlook' 'viewIndividualPrefs.Calendar Grid View' '{
-	OLViewPrefCalendarViewTypeKey = OLViewPrefCalendarViewTypeWorkWeekValue;
-}' || true
-
 # Paste
 defaults write -app Paste kPSTPreferencesEnableSoundEffects -bool false
 defaults write -app Paste kPSTPreferencesShowMenuBarIcon -bool false
