@@ -28,6 +28,8 @@ fi
 
 git branch --no-track "$branch_name" "$branch_with_remote"
 
+trap 'trap '' EXIT && git branch -D "$branch_name"' EXIT INT TERM
+
 readonly worktree_name=$(git rev-parse --show-toplevel | md5)
 readonly worktree_dir="/tmp/$worktree_name"
 # If the OS cleaned the directory in the /tmp dir, it maybe exist but be empty
@@ -43,14 +45,15 @@ _checkout_empty() {
   git -C "$worktree_dir" switch -C "empty-$worktree_name" --quiet
 }
 
+_cleanup_cherrypick() {
+  git -C "$worktree_dir" cherry-pick --abort
+  _checkout_empty
+  git branch -D "$branch_name"
+}
+
 if ! git -C "$worktree_dir" cherry-pick "$commit"; then
-  if ! git -C "$worktree_dir" mergetool; then
-    # TODO: should this be -D?
-    git -C "$worktree_dir" cherry-pick --abort
-    _checkout_empty
-    git branch -d "$branch_name"
-    exit 1
-  fi
+  trap 'trap '' EXIT && _cleanup_cherrypick' EXIT INT TERM
+  git -C "$worktree_dir" mergetool
 fi
 
 trap '_checkout_empty' EXIT
