@@ -41,6 +41,7 @@ for plugin in "${plugins[@]}"; do
 
       sed "${args[@]}" "$example" > "$final"
     fi
+    chmod +x "$final"
 
     substep_success "set up $plugin"
   fi
