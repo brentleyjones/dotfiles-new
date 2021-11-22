@@ -81,7 +81,7 @@
 
     "workbench.startupEditor": "none",
 
-    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/vscode-nvim",
 
     /* Language specific settings */
 
