@@ -335,9 +335,6 @@ defaults write -app "1Password 7" LockOnScreenSaver -bool false
 defaults write -app "1Password 7" LockOnSleep -bool false
 defaults write -app "1Password 7" LockOnUserSwitch -bool false
 
-# BitBar
-defaults write com.matryer.BitBar pluginsDirectory -string "$HOME/bitbar-plugins"
-
 # Fantastical
 defaults write -app Fantastical HideDockIcon -bool true
 
@@ -456,7 +453,7 @@ defaults write -app Paste kPSTPreferencesShowMenuBarIcon -bool false
 # Kill all affected apps
 
 sleep 1
-for app in "Activity Monitor" "BitBar" "cfprefsd" "ControlCenter" "Dock" "Fantastical" "Finder" "Mail" "Kaleidoscope" "Microsoft Outlook" "Safari" "Tower" "SystemUIServer"; do
+for app in "Activity Monitor" "cfprefsd" "ControlCenter" "Dock" "Fantastical" "Finder" "Mail" "Kaleidoscope" "Microsoft Outlook" "Safari" "Tower" "SystemUIServer"; do
 	killall "${app}" > /dev/null 2>&1 || true
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."

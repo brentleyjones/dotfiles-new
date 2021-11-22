@@ -7,9 +7,9 @@ cd "${BASH_SOURCE[0]%/*}" || exit 1
 source ../scripts/functions.sh
 
 src="$(osx_realpath plugins)"
-dst="$(osx_realpath "$HOME/bitbar-plugins")"
+dst="$(osx_realpath "$HOME/Library/Application Support/xbar/plugins")"
 
-info "setting up bitbar"
+info "setting up xbar"
 mkdir -p "$dst"
 
 plugins=()
