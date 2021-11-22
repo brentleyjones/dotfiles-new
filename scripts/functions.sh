@@ -76,7 +76,7 @@ symlink () {
     if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]; then
 
       local currentSrc
-      currentSrc="$(readlink "$dst")"
+      currentSrc="$(readlink "$dst")" || true
 
       if [ "$currentSrc" == "$src" ]; then
         skip=true;
