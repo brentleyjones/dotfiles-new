@@ -340,6 +340,11 @@
     "Green Component" : 0.1491314172744751
   },
   "Smart Cursor Color" : false,
+  "Semantic History" : {
+    "text" : "",
+    "action" : "editor",
+    "editor" : "com.microsoft.VSCode"
+  },
   "Ambiguous Double Width" : false,
   "Cursor Type" : 1,
   "Ansi 0 Color" : {
