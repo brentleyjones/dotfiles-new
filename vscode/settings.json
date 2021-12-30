@@ -165,4 +165,10 @@
         "Brentley",
         "barcode"
     ],
+
+    /* Other */
+    "projectManager.git.baseFolders": [
+        "~/"
+    ],
+    "projectManager.git.maxDepthRecursion": 2,
 }
