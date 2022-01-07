@@ -15,3 +15,6 @@ opt('o', 'joinspaces', true)
 
 -- System clipboard
 opt('o', 'clipboard', 'unnamedplus')
+
+-- Allow placing cursor after the end of newline
+opt('o', 'virtualedit', 'onemore')
