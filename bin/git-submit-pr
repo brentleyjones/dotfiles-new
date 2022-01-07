@@ -59,7 +59,7 @@ fi
 trap '_checkout_empty' EXIT
 
 if git -C "$worktree_dir" push --quiet --set-upstream origin "$branch_name"; then
-  gh pr create --draft --fill --base "$remote_branch_name" --head "$branch_name"
+  gh pr create --web --base "$remote_branch_name" --head "$branch_name"
 elif git -C "$worktree_dir" push --quiet --set-upstream mine "$branch_name"; then
   git -C "$worktree_dir" open --remote mine "pull/new/$branch_name"
 else
