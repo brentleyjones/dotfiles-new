@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 # <bitbar.title>GitHub Notifications</bitbar.title>
@@ -7,15 +7,15 @@
 # <bitbar.author.github>flesch</bitbar.author.github>
 # <bitbar.desc>GitHub (and GitHub:Enterprise) notifications in your menu bar!</bitbar.desc>
 # <bitbar.image>https://i.imgur.com/hW7dw9E.png</bitbar.image>
-# <bitbar.dependencies>python</bitbar.dependencies>
+# <bitbar.dependencies>python3</bitbar.dependencies>
 
-import dateutil.parser
 import json
-import urllib2
+import urllib.request
 import os
 import sys
 import re
 from datetime import datetime
+import dateutil.parser
 from itertools import groupby
 
 # GitHub.com
@@ -40,7 +40,7 @@ def get_dict_subset( thedict, *keys ):
     return dict([ (key, thedict[key]) for key in keys if key in thedict ])
 
 def print_bitbar_line( title, **kwargs ):
-    print title + ' | ' + ( ' '.join( [ '{}={}'.format( k, v ) for k, v in kwargs.items() ] ) )
+    print(title + ' | ' + ( ' '.join( [ '{}={}'.format( k, v ) for k, v in kwargs.items() ] ) ))
 
 def is_important( notification ):
     reason = notification['reason']
@@ -71,12 +71,12 @@ def make_github_request( url, method='GET', data=None, enterprise = False ):
         if data is not None:
             data = json.dumps(data)
             headers['Content-Type'] = 'application/json'
-            headers['Contnet-Length'] = len(data)
-        request = urllib2.Request( url, headers=headers )
+            headers['Content-Length'] = len(data)
+        request = urllib.request.Request( url, headers=headers )
         request.get_method = lambda: method
-        response = urllib2.urlopen( request, data )
-        return json.load( response ) if response.headers.get('content-length', 0) > 0 else {}
-    except Exception:
+        response = urllib.request.urlopen( request, data )
+        return json.load( response ) if int(response.headers.get('content-length', 0)) > 0 else {}
+    except Exception as e:
         return None
 
 def get_notifications( enterprise ):
@@ -128,7 +128,7 @@ def format_notification( notification ):
     type = notification['subject']['type']
     formatted = {
         'thread': notification['url'],
-        'title': notification['subject']['title'].encode('utf-8'),
+        'title': notification['subject']['title'],
         'href': notification['subject']['url'],
         'image': 'iVBORw0KGgoAAAANSUhEUgAAAA4AAAAQCAYAAAAmlE46AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAA',
     }
@@ -140,8 +140,8 @@ def format_notification( notification ):
     if latest_comment_url:
         formatted['href'] = ( make_github_request( latest_comment_url ) or {} ).get( 'html_url', formatted['href'] )
     # Try to hack a web-viewable URL if the last check failed
-    if formatted['href']:
-        formatted['href'] = re.sub( 'api\.|api/v3/|repos/', '', re.sub( '(pull|commit)s', ur'\1', formatted['href'] ) )
+    # if formatted['href']:
+    #     formatted['href'] = re.sub( 'api\.|api/v3/|repos/', '', re.sub( '(pull|commit)s', ur'\1', formatted['href'] ) )
     if (type == 'PullRequest'):
         if typejson and typejson['merged']:
             formatted['image'] += 'SpJREFUKJG9kkFOwmAQhb+ZQiVx5xm4hIlncEF7jLZuWSjSeAJsvQUY4xkMHsCtcU9MXBmwJsy4EWgFEt34VpP55mX+eflhj9KoGO5jAK00LmOwoZiaYIPRbXaXRsVQRC6BvWZJ4uLJRI6DcKlUMsVl/G0CwIw3UR8V4+QKxFd9BbfDqiP6buo1sB5QjgTJ07i8aPTFgvNFa/7i7fYzaL+YpEN3zwGux4mY2QmAm6db783i0rO4bGyrh7OL66a0Bigm6d5gGkYz3brvV8a/SjeF/dPGJLrpmTMDXs/i4vTnQNYrInNm5szqvIVYbiJdCV1Z6ANwXze6em4i3SBcqi+CNVeAIFxq9dkR0+07HfHVz6rzlsLAK5keUCEu/R0hDD7C+SME6A7+Z30BqF2G+GPLjSUAAAAASUVORK5CYII='
@@ -177,16 +177,16 @@ if len(sys.argv) > 1:
         args.remove( '--enterprise' )
     if command == 'readrepo':
         url = '%s/repos/%s/notifications' % (enterprise_api_url if enterprise else 'https://api.github.com', args[0])
-        print 'Marking %s as read' % url
+        print("Marking %s as read" % url)
         make_github_request( url=url, method='PUT', data={}, enterprise=enterprise )
     elif command == 'readthread':
         url = args[0]
-        print 'Marking %s as read' % url
+        print('Marking %s as read' % url)
         make_github_request( url=url, method='PATCH', data={}, enterprise=enterprise )
     elif command == 'unsubscribe':
         thread_url = args[0]
         subscription_url = args[1]
-        print 'Unsubscribing from %s' % thread_url
+        print('Unsubscribing from %s' % thread_url)
         make_github_request( url=subscription_url, method='PUT', data={"ignored": True}, enterprise=enterprise )
         make_github_request( url=thread_url, method='PATCH', data={}, enterprise=enterprise )
 
@@ -209,32 +209,32 @@ else:
 
     if (has_notifications):
         print_bitbar_line(
-            title=u'\u25CF'.encode( 'utf-8' ),
+            title='\u25CF',
             color=color
         )
-        print '---'
+        print('---')
     else:
         print_bitbar_line(
             title='•',
             color='#ffffff'
         )
-        print '---'
+        print('---')
 
     print_bitbar_line( title='Refresh', refresh='true' )
 
-    print '---'
+    print('---')
 
     if is_github_defined:
         if len( github_notifications ):
             print_bitbar_line(
-                title=( u'GitHub \u2014 %s' % plural( 'notification', len( github_notifications ) ) ).encode( 'utf-8' ),
+                title=( 'GitHub \u2014 %s' % plural( 'notification', len( github_notifications ) ) ),
                 color=active,
                 href='https://github.com/notifications',
             )
             print_notifications( github_notifications, last_checked )
         else:
             print_bitbar_line(
-                title=u'GitHub \u2014 No new notifications'.encode( 'utf-8' ),
+                title='GitHub \u2014 No new notifications',
                 color=inactive,
                 href='https://github.com/notifications',
             )
@@ -242,16 +242,16 @@ else:
     if is_github_enterprise_defined:
         if len( enterprise_notifications ):
             if is_github_defined:
-                print '---'
+                print('---')
             print_bitbar_line(
-                title=( u'GitHub:Enterprise \u2014 %s' % plural( 'notification', len( enterprise_notifications ) ) ).encode( 'utf-8' ),
+                title=( 'GitHub:Enterprise \u2014 %s' % plural( 'notification', len( enterprise_notifications ) ) ),
                 color=active,
                 href='%s/notifications' % re.sub( '/api/v3', '',  enterprise_api_url ),
             )
             print_notifications( enterprise_notifications, last_checked, enterprise=True )
         else:
-            print '---'
+            print('---')
             print_bitbar_line(
-                title=u'GitHub:Enterprise \u2014 No new notifications',
+                title='GitHub:Enterprise \u2014 No new notifications',
                 color=inactive,
             )
