@@ -9,7 +9,6 @@
     "window.autoDetectHighContrast": false,
     "window.nativeTabs": true,
     "window.titleBarStyle": "native",
-    "window.zoomLevel": 0,
 
     "workbench.editor.untitled.hint": "hidden",
 
@@ -21,6 +20,7 @@
     "editor.fontSize": 13,
     "editor.lineHeight": 18,
     "editor.renderWhitespace": "all",
+    "editor.rulers": [80],
     "editor.wordWrap": "on",
     "editor.wordWrapColumn": 120,
     "workbench.colorTheme": "Xcode Default (Light)",
@@ -162,8 +162,17 @@
         "yml"
     ],
     "cSpell.userWords": [
+        "barcode",
+        "Bazel",
+        "Bazelcon",
         "Brentley",
-        "barcode"
+        "lldb",
+        "merkle",
+        "mnenomic",
+        "rpath",
+        "Starlark",
+        "Starlarkification",
+        "Toolchains"
     ],
 
     /* Other */
