@@ -31,8 +31,8 @@ set_dock() {
     substep_info "adding Messages"
     dockutil --add /System/Applications/Messages.app --no-restart
 
-    substep_info "adding OmniFocus"
-    dockutil --add /Applications/OmniFocus.app --no-restart
+    substep_info "adding Things 3"
+    dockutil --add /Applications/Things.app --no-restart
 
     substep_info "adding a spacer"
     dockutil --add '' --type spacer --section apps --no-restart
@@ -45,9 +45,6 @@ set_dock() {
 
     substep_info "adding Visual Studio Code"
     dockutil --add '/Applications/Visual Studio Code.app' --no-restart
-
-    substep_info "adding Xcode"
-    dockutil --add /Applications/Xcode.app --no-restart
 
     substep_info "restarting dock"
     killall Dock
