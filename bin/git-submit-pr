@@ -54,6 +54,7 @@ _cleanup_cherrypick() {
 if ! git -C "$worktree_dir" cherry-pick "$commit"; then
   trap 'trap '' EXIT && _cleanup_cherrypick' EXIT INT TERM
   git -C "$worktree_dir" mergetool
+  git -C "$worktree_dir" cherry-pick --continue
 fi
 
 trap '_checkout_empty' EXIT
