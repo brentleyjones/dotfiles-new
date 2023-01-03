@@ -56,3 +56,5 @@
 [branch "main"]
         # Prevent pushing to main
         pushRemote = NOPE
+[init]
+	defaultBranch = main
