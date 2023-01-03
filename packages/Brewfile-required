@@ -2,6 +2,7 @@ tap "homebrew/cask"
 
 cask_args appdir: "/Applications"
 
+brew "dockutil"
 brew "fish"
 brew "mas"
 brew "python"
