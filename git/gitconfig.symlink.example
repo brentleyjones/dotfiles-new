@@ -14,9 +14,9 @@
 [core]
         excludesfile = ~/.gitignore
         editor = nvim
-	pager = diff-so-fancy | less --tabs=4 -RF -+X
+        pager = delta
 [interactive]
-	diffFilter = diff-so-fancy --patch
+        diffFilter = delta --color-only
 [apply]
         whitespace = nowarn
 [mergetool "Kaleidoscope"]
@@ -28,13 +28,17 @@
 [merge]
         tool = Kaleidoscope
 [rebase]
-	autosquash = true
+        autosquash = true
 [difftool "Kaleidoscope"]
         cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool]
         prompt = false
 [diff]
-	tool = Kaleidoscope
+        tool = Kaleidoscope
+[delta]
+        light = true
+        side-by-side = true
+        line-numbers = true
 [help]
         autocorrect = 1
 [push]
@@ -44,12 +48,12 @@
         # Setting to git 2.0 default to suppress warning message
         default = current
 [pull]
-	ff = only
+        ff = only
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+        clean = git-lfs clean -- %f
+        smudge = git-lfs smudge -- %f
+        process = git-lfs filter-process
+        required = true
 [branch "master"]
         # Prevent pushing to master
         pushRemote = NOPE
@@ -57,4 +61,6 @@
         # Prevent pushing to main
         pushRemote = NOPE
 [init]
-	defaultBranch = main
+        defaultBranch = main
+[diff "color"]
+        commit = blue
