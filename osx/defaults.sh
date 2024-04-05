@@ -296,15 +296,16 @@ defaults write com.apple.ActivityMonitor SortDirection -int 0
 # Xcode                                                                      #
 ##############################################################################
 
+defaults write com.apple.dt.Xcode DVTTextCodeFocusOnHover -bool false
+defaults write com.apple.dt.Xcode DVTTextEditorTrimWhitespaceOnlyLines -bool true
+defaults write com.apple.dt.Xcode DVTTextPageGuideLocation -int 80
+defaults write com.apple.dt.Xcode DVTTextShowFoldingSidebar -bool true
+defaults write com.apple.dt.Xcode DVTTextShowInvisibleCharacters -bool true
 defaults write com.apple.dt.Xcode DVTTextShowLineNumbers -bool true
 defaults write com.apple.dt.Xcode DVTTextShowPageGuide -bool true
-defaults write com.apple.dt.Xcode DVTTextPageGuideLocation -int 120
-defaults write com.apple.dt.Xcode DVTTextCodeFocusOnHover -bool false
-defaults write com.apple.dt.Xcode DVTTextShowFoldingSidebar -bool false
-defaults write com.apple.dt.Xcode DVTTextEditorTrimWhitespaceOnlyLines -bool true
 
-defaults write com.apple.dt.Xcode IDERecentEditorDocumentsLimit -int 30
 defaults write com.apple.dt.Xcode "IDEEditorCoordinatorTarget_Click2" -string Default
+defaults write com.apple.dt.Xcode IDERecentEditorDocumentsLimit -int 30
 
 defaults write com.apple.dt.Xcode IDESourceControlAutomaticallyAddNewFiles -bool false
 defaults write com.apple.dt.Xcode IDESourceControlEnableSourceControl_7_1 -bool true
@@ -317,12 +318,17 @@ defaults write com.apple.dt.Xcode IDESuppressStopExecutionWarning -bool true
 defaults write com.apple.dt.Xcode IDESuppressStopExecutionWarningTarget -string "IDESuppressStopExecutionWarningTargetValue_Stop"
 defaults write com.apple.dt.Xcode IDESuppressStopTestWarning -bool true
 
-defaults write com.apple.dt.Xcode IDEIndexShowLog -bool true
 defaults write com.apple.dt.Xcode IDEIndexerActivityShowNumericProgress -bool true
+defaults write com.apple.dt.Xcode IDEIndexShowBuildLog -bool true
+defaults write com.apple.dt.Xcode IDEIndexShowLog -bool true
 defaults write com.apple.dt.Xcode IDEShowPrebuildLogs -bool true
+
+defaults write com.apple.dt.Xcode IDEIssueNavigatorPreferCompressedStackFrames -bool false
 
 defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool true
 defaults write com.apple.dt.Xcode ShowDVTDebugMenu -bool true
+
+defaults write com.apple.dt.Xcode XCFontAndColorCurrentTheme -string "Default (Light) - Mono.xccolortheme"
 
 ###############################################################################
 # Applications                                                                #
