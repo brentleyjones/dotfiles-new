@@ -21,6 +21,7 @@ set -U tide_time_bg_color EBEBEB
 # abbr
 
 abbr -a -- 8601 'date -u +%Y-%m-%dT%H:%M:%SZ'
+abbr -a -- bz 'bazel'
 abbr -a -- deeplink 'xcrun simctl openurl booted'
 abbr -a -- g git
 abbr -a -- gaa 'git add .'
