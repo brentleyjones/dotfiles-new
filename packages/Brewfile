@@ -31,7 +31,6 @@ brew "tree"
 
 cask "1Password"
 cask "bartender"
-cask "bettertouchtool"
 cask "camo-studio"
 cask "hex-fiend"
 cask "cleanshot"
