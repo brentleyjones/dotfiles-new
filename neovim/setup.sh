@@ -37,8 +37,8 @@ if [ ! -d "$packer" ]; then
     git clone https://github.com/wbthomason/packer.nvim "$packer"
 
     substep_info "installing plugins"
-    nvim -u NONE --headless +luafile\ lua/plugins.lua +PackerCompile +PackerInstall +qa
+    nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 else
     substep_info "updating plugins"
-    nvim -u NONE --headless +luafile\ lua/plugins.lua +PackerUpdate +qa
+    nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 fi
