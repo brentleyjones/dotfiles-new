@@ -436,9 +436,6 @@ defaults write -app Tower SUAutomaticallyUpdate -bool true
 defaults write -app Tower SUEnableAutomaticChecks -bool true
 defaults write -app Tower SUScheduledCheckInterval -int 86400
 
-# Tweetbot
-defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
-
 # Paste
 defaults write -app Paste kPSTPreferencesEnableSoundEffects -bool false
 defaults write -app Paste kPSTPreferencesShowMenuBarIcon -bool false
