@@ -207,9 +207,9 @@ defaults write com.apple.dock showhidden -bool true
 # Menubar                                                                     #
 ###############################################################################
 
-defaults write com.apple.menuextra.clock DateFormat -string "h:mm a"
 defaults write com.apple.menuextra.clock Show24Hour -bool false
 defaults write com.apple.menuextra.clock ShowAMPM -bool true
+defaults write com.apple.menuextra.clock ShowDate -int 2
 defaults write com.apple.menuextra.clock ShowDayOfMonth -bool false
 defaults write com.apple.menuextra.clock ShowDayOfWeek -bool false
 defaults write com.apple.menuextra.clock ShowSeconds -bool false
