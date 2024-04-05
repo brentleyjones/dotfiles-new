@@ -24,8 +24,10 @@ setup_gitconfig () {
     read -er git_authorname
     user ' - What is your github author email?'
     read -er git_authoremail
+    user ' - Where is your ssh public key?'
+    read -er git_ssh_pub_key
 
-    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.symlink.example > git/gitconfig.symlink
+    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" -e "s/SIGNINGKEY/$git_ssh_pub_key/g" git/gitconfig.symlink.example > git/gitconfig.symlink
 
     success 'set up gitconfig'
   fi
