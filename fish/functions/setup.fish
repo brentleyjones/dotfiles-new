@@ -9,12 +9,6 @@ function setup -d 'Sets initial state for Fish'
     set -Ux BAT_THEME 'GitHub'
     set -Ux FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 
-    # Abbreviations
-    for abbreviation in (abbr -l)
-        abbr -e $abbreviation
-    end
-    source "$XDG_CONFIG_HOME/fish/functions/set_abbr.fish"
-
     # Plugins
     curl -sL https://git.io/fisher | source && fisher update
 
