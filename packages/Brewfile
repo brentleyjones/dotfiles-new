@@ -29,7 +29,6 @@ brew "shellcheck"
 brew "the_silver_searcher"
 brew "tree"
 
-cask "1Password"
 cask "bartender"
 cask "camo-studio"
 cask "hex-fiend"
