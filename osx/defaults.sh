@@ -292,6 +292,9 @@ defaults write com.apple.ActivityMonitor ShowCategory -int 0
 defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
 defaults write com.apple.ActivityMonitor SortDirection -int 0
 
+# Update more frequently
+defaults write com.apple.ActivityMonitor UpdatePeriod -int 1
+
 ##############################################################################
 # Xcode                                                                      #
 ##############################################################################
