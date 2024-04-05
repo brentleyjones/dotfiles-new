@@ -72,12 +72,6 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
-# Set Touch Bar to show only app controls
-defaults write com.apple.touchbar.agent PresentationModeGlobal -string "app"
-defaults write com.apple.touchbar.agent PresentationModeFnModes '{
-	app = fullControlStrip;
-}'
-
 # Function keys on external keyboard are shortcuts
 defaults write NSGlobalDomain com.apple.keyboard.fnState -bool false
 
