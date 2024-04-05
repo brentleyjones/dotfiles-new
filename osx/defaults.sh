@@ -337,12 +337,16 @@ defaults write -app Kaleidoscope KS3UpTextScopeViewControllerDefaultsInitialDeta
 
 # iTerm
 defaults write -app iTerm AlternateMouseScroll -bool true
+defaults write -app iTerm AppleAntiAliasingThreshold -bool true
+defaults write -app iTerm ApplePressAndHoldEnabled -bool false
+defaults write -app iTerm AppleScrollAnimationEnabled -bool false
+defaults write -app iTerm AppleSmoothFixedFontsSizeThreshold -bool true
 defaults write -app iTerm DimBackgroundWindows -bool true
 defaults write -app iTerm DimInactiveSplitPanes -bool true
 defaults write -app iTerm DimOnlyText -bool true
 defaults write -app iTerm DisableFullscreenTransparency -bool true
 defaults write -app iTerm GlobalKeyMap '{
-"0x19-0x60000" = {
+	"0x19-0x60000" = {
 		Action = 39;
 		Text = "";
 	};
