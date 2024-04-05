@@ -412,8 +412,12 @@ defaults write -app iTerm UseBorder -bool false
 
 # Tower
 defaults write -app Tower GTUserDefaultsAlwaysAutoUpdateSubmodules -bool true
-defaults write -app Tower GTUserDefaultsDefaultCloningDirectory -string "$HOME/Developer"
+defaults write -app Tower GTUserDefaultsColorSyntax -bool true
+defaults write -app Tower GTUserDefaultsColorSyntaxInDiffs -bool true
+defaults write -app Tower GTUserDefaultsCommitOptionSignOff -bool true
+defaults write -app Tower GTUserDefaultsDefaultCloningDirectory -string "\~/Developer"
 defaults write -app Tower GTUserDefaultsDefaultTerminalApplication -string "com.googlecode.iterm2"
+defaults write -app Tower GTUserDefaultsDetailHeaderExpanded -bool true
 defaults write -app Tower GTUserDefaultsDialogueOptionCheckoutCreatedBranch -bool true
 defaults write -app Tower GTUserDefaultsDialogueOptionCheckoutCreatedBranch -bool true
 defaults write -app Tower GTUserDefaultsDialogueOptionCherryPickAlwaysGenerateMergeCommit -bool true
@@ -422,13 +426,22 @@ defaults write -app Tower GTUserDefaultsDialogueOptionMergeAlwaysGenerateMergeCo
 defaults write -app Tower GTUserDefaultsDialogueOptionPullUseRebase -bool false
 defaults write -app Tower GTUserDefaultsDialogueOptionPushPushAllTags -bool false
 defaults write -app Tower GTUserDefaultsDialogueOptionRevertAlwaysGenerateMergeCommit -bool true
+defaults write -app Tower GTUserDefaultsDialogueOptionSignTag -bool true
+defaults write -app Tower GTUserDefaultsDiffToolCompareDirectory -bool false
 defaults write -app Tower GTUserDefaultsDiffToolIdentifier -string kaleidoscope
+defaults write -app Tower GTUserDefaultsEnsureGPGKeyEmailMatchesCommitterEmail -bool true
+defaults write -app Tower GTUserDefaultsGettingStartedPassed -bool true
 defaults write -app Tower GTUserDefaultsHistoryGraphCommitViewSize -int 1
 defaults write -app Tower GTUserDefaultsHistoryGroupingType -int 1
+defaults write -app Tower GTUserDefaultsHistoryShowFirstParentOnly -bool false
 defaults write -app Tower GTUserDefaultsHistoryShowGraph -bool true
+defaults write -app Tower GTUserDefaultsHistoryVerifiesGPGSignatures -bool true
+defaults write -app Tower GTUserDefaultsHistoryVerifiesGPGSignaturesInitialActivation = 1;
+defaults write -app Tower GTUserDefaultsLightTheme -string "Xcode"
 defaults write -app Tower GTUserDefaultsMergeToolIdentifier -string kaleidoscope
 defaults write -app Tower GTUserDefaultsSavePatchOmitPrefixes -bool false
 defaults write -app Tower GTUserDefaultsSaveStashOptionIncludeUntrackedFiles -bool true
+defaults write -app Tower GTUserDefaultsShowInvisibleCharacters -bool true
 defaults write -app Tower GTUserDefaultsShowReflogInSidebar -bool true
 defaults write -app Tower GTUserDefaultsShowRemoteActivityView -bool true
 defaults write -app Tower GTUserDefaultsTagsSortMode -int 2
