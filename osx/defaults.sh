@@ -219,8 +219,8 @@ defaults write com.apple.menuextra.clock ShowSeconds -bool false
 ###############################################################################
 
 # Set Autofill rules
-defaults write -app Safari AutoFillFromAddressBook -bool false
-defaults write -app Safari AutoFillPasswords -bool false
+defaults write -app Safari AutoFillFromAddressBook -bool true
+defaults write -app Safari AutoFillPasswords -bool true
 defaults write -app Safari AutoFillCreditCardData -bool true
 defaults write -app Safari AutoFillMiscellaneousForms -bool true
 
@@ -229,6 +229,9 @@ defaults write -app Safari AutoOpenSafeDownloads -bool false
 
 # Hide Safari’s bookmarks bar by default
 defaults write -app Safari ShowFavoritesBar -bool false
+
+# Show URL at the bottom when hovering links
+defaults write -app Safari ShowOverlayStatusBar -bool true
 
 # Always show Safari's Tab Bar
 defaults write -app Safari AlwaysShowTabBar -bool true
@@ -248,6 +251,7 @@ defaults write -app Safari FindOnPageMatchesWordStartsOnly -bool false
 # Enable the Develop menu and the Web Inspector in Safari
 defaults write -app Safari IncludeDevelopMenu -bool true
 defaults write -app Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+defaults write -app Safari "WebKitPreferences.developerExtrasEnabled" -bool true
 defaults write -app Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
 
 # Remove colored tab backgrounds
@@ -259,21 +263,20 @@ defaults write -app Safari "WebKitPreferences.developerExtrasEnabled" -bool true
 
 # Customize toolbar
 readonly safari_toolbar_items=(
-	"SidebarToolbarIdentifier"
+	"CombinedSidebarTabGroupToolbarIdentifier"
+	"SidebarSeparatorToolbarItemIdentifier"
 	"BackForwardToolbarIdentifier"
 	"NSToolbarFlexibleSpaceItem"
 	"PrivacyReportToolbarIdentifier"
 	"InputFieldsToolbarIdentifier"
 	"NSToolbarFlexibleSpaceItem"
-	"ShowDownloadsToolbarIdentifier"
 	"ShareToolbarIdentifier"
 	"NewTabToolbarIdentifier"
 	"TabPickerToolbarIdentifier"
 )
 
-defaults write -app Safari OrderedToolbarItemIdentifiers -array "${safari_toolbar_items[@]}"
-defaults write -app Safari "NSToolbar Configuration BrowserToolbarIdentifier-v2" -dict-add "TB Item Identifiers" "($(join_by , "${safari_toolbar_items[@]}"))"
-defaults write -app Safari "NSToolbar Configuration BrowserToolbarIdentifier-v3.1" -dict-add "TB Item Identifiers" "($(join_by , "${safari_toolbar_items[@]}"))"
+defaults write -app Safari "NSToolbar Configuration BrowserStandaloneTabBarToolbarIdentifier" -dict-add "TB Default Item Identifiers" "($(join_by , "${safari_toolbar_items[@]}"))"
+defaults write -app Safari "NSToolbar Configuration BrowserStandaloneTabBarToolbarIdentifier" -dict-add "TB Item Identifiers" "($(join_by , "${safari_toolbar_items[@]}"))"
 
 ###############################################################################
 # Activity Monitor                                                            #
