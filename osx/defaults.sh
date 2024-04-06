@@ -440,7 +440,7 @@ defaults write -app Tower GTUserDefaultsHistoryGroupingType -int 1
 defaults write -app Tower GTUserDefaultsHistoryShowFirstParentOnly -bool false
 defaults write -app Tower GTUserDefaultsHistoryShowGraph -bool true
 defaults write -app Tower GTUserDefaultsHistoryVerifiesGPGSignatures -bool true
-defaults write -app Tower GTUserDefaultsHistoryVerifiesGPGSignaturesInitialActivation = 1;
+defaults write -app Tower GTUserDefaultsHistoryVerifiesGPGSignaturesInitialActivation -bool true
 defaults write -app Tower GTUserDefaultsLightTheme -string "Xcode"
 defaults write -app Tower GTUserDefaultsMergeToolIdentifier -string kaleidoscope
 defaults write -app Tower GTUserDefaultsSavePatchOmitPrefixes -bool false
