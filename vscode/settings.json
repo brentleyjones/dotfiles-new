@@ -77,7 +77,7 @@
     "vim.mouseSelectionGoesIntoVisualMode": false,
     "vim.useCtrlKeys": false,
     "vim.useSystemClipboard": true,
-    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/vscode-nvim",
+    "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
     "workbench.startupEditor": "none",
 
     /* Git */

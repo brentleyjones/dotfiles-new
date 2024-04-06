@@ -22,14 +22,6 @@ find . -not -name 'setup.sh' -type f  | cut -c3- | while read -r fn; do
 done
 clear_broken_symlinks "$dst"
 
-# Symlink for VS Code settings.json
-if [[ "$(uname -m)" == "arm64" ]]; then
-    mkdir -p "/usr/local/bin"
-    symlink "/opt/homebrew/bin/nvim" "/usr/local/bin/vscode-nvim"
-else
-    symlink "/usr/local/bin/nvim" "/usr/local/bin/vscode-nvim"
-fi
-
 packer="$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
 if [ ! -d "$packer" ]; then
     substep_info "installing packer.nvim"
