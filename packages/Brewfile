@@ -3,7 +3,6 @@ tap "homebrew/cask-versions"
 
 cask_args appdir: "/Applications"
 
-brew "aria2"
 brew "bat"
 brew "bazelisk"
 brew "clang-format"
