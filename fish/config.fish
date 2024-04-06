@@ -5,6 +5,8 @@ set -gx DELTA_PAGER 'less --tabs=4 -RF -+X'
 set -gx FZF_DEFAULT_COMMAND 'fd --type file --follow --hidden --exclude .git --color=always'
 set -gx FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height=90% --preview-window=wrap --marker="*" --ansi'
 
+set -g fish_greeting
+
 set -U tide_right_prompt_items status cmd_duration time
 set -U tide_git_color_branch F9F9F9
 set -U tide_git_color_conflicted F9F9F9
