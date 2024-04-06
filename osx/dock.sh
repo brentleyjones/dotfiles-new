@@ -32,7 +32,7 @@ set_dock() {
     dockutil --add /System/Applications/Messages.app --no-restart
 
     substep_info "adding Things 3"
-    dockutil --add /Applications/Things.app --no-restart
+    dockutil --add /Applications/Things3.app --no-restart
 
     substep_info "adding a spacer"
     dockutil --add '' --type spacer --section apps --no-restart
