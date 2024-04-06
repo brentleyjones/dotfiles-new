@@ -48,19 +48,6 @@ else
 fi
 
 install_mas_packages() {
-    # Ensure we are signed into mas
-    if ! mas account > /dev/null; then
-        substep_info "signing into the Mac App Store"
-        substep_user ' - What is your Apple ID?'
-        read -er apple_id
-        if mas signin "$apple_id"; then
-            substep_success "signed into the Mac App Store"
-        else
-            substep_error "failed to sign into the Mac App Store"
-            return 2
-        fi
-    fi
-
     # Install the packages
     if ! brew bundle --file Brewfile-mas; then
         substep_error "failed to install Brewfile-mas packages"
