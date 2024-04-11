@@ -1,0 +1,11 @@
+{{- if .isRedditEmployee -}}
+Include "{{ .chezmoi.homeDir }}/src/ssh-config/config/generated"
+
+{{ end -}}
+
+Host github.com
+    IdentityFile ~/.ssh/{{ .personalSshKey }}
+    AddKeysToAgent yes
+    {{- if eq .chezmoi.os "darwin" }}
+    UseKeychain yes
+    {{- end }}

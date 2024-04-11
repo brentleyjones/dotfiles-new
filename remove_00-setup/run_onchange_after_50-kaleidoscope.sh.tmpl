@@ -1,0 +1,16 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+set -euo pipefail
+
+echo '[Setting defaults - Kaleidoscope]'
+
+# Use iTerm as terminal
+defaults write -app Kaleidoscope KALTerminalApp -bool true
+
+# Don't show Prism menubar app
+defaults write -app Kaleidoscope launcherAppLaunchOption -bool false
+
+# Show blocks middle panel for merges
+defaults write -app Kaleidoscope KS3UpTextScopeViewControllerDefaultsInitialDetailControllerClassNameKey -int 0
+{{ end -}}

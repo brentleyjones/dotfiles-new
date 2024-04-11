@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo '[Fetching git-lfs files]'
+
+cd '{{ .chezmoi.sourceDir }}'
+
+git lfs install
+git lfs pull

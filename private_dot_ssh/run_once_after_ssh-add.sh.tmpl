@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -euo pipefail
+
+ssh-add {{ if eq .chezmoi.os "darwin" }}--apple-use-keychain{{ end }} ~/.ssh/{{ .personalSshKey }}
+
+{{- if .workSshKey }}
+ssh-add {{ if eq .chezmoi.os "darwin" }}--apple-use-keychain{{ end }} ~/.ssh/{{ .workSshKey }}
+{{- end }}

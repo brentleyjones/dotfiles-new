@@ -1,4 +1,0 @@
-# Set path for Apple Silicon
-if [[ "$(uname -m)" == "arm64" && :$PATH: != *:"/opt/homebrew/bin":* ]]; then
-    export PATH="/opt/homebrew/bin:${PATH}"
-fi

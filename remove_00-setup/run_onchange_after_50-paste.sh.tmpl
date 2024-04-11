@@ -1,0 +1,10 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+set -euo pipefail
+
+echo '[Setting defaults - Paste]'
+
+defaults write -app Paste kPSTPreferencesEnableSoundEffects -bool false
+defaults write -app Paste kPSTPreferencesShowMenuBarIcon -bool false
+{{ end -}}

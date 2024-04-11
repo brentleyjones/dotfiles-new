@@ -1,0 +1,22 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+set -euo pipefail
+
+echo '[Setting defaults - Activity Monitor]'
+
+# Show the main window when launching Activity Monitor
+defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
+
+# Visualize CPU usage in the Activity Monitor Dock icon
+defaults write com.apple.ActivityMonitor IconType -int 5
+
+# Show all processes in Activity Monitor
+defaults write com.apple.ActivityMonitor ShowCategory -int 100
+
+# Update more frequently
+defaults write com.apple.ActivityMonitor UpdatePeriod -int 1
+
+sleep 1
+killall "Activity Monitor" > /dev/null 2>&1 || true
+{{ end -}}

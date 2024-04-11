@@ -1,0 +1,13 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+set -euo pipefail
+
+# Install at least one Xcode version
+installed_xcodes=$(xcodes installed)
+if [[ -z "$installed_xcodes" ]]; then
+  echo '[Installing latest Xcode version]'
+  
+  xcodes install --latest --experimental-unxip
+fi
+{{ end -}}

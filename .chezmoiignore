@@ -1,0 +1,9 @@
+README.md
+
+# Settings that have to be manually imported
+manual
+
+{{- if ne .chezmoi.os "darwin" }}
+# macOS specific files
+Library
+{{- end }}

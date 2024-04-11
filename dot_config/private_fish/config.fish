@@ -1,0 +1,54 @@
+###############################################################################
+# Exports
+###############################################################################
+
+# Core
+set -gx EDITOR 'nvim'
+set -q XDG_CONFIG_HOME; or set -g XDG_CONFIG_HOME "$HOME/.config"
+
+# `bat`
+set -gx BAT_THEME 'GitHub'
+
+# `delta`
+set -gx DELTA_PAGER 'less --tabs=4 -RF -+X'
+
+# `fzf`
+set -gx FZF_DEFAULT_COMMAND 'fd --type file --follow --hidden --exclude .git --color=always'
+set -gx FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height=90% --preview-window=wrap --marker="*" --ansi'
+set -gx FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
+
+###############################################################################
+# fish
+###############################################################################
+
+# Abbreviations
+abbr -a -- 8601 'date -u +%Y-%m-%dT%H:%M:%SZ'
+abbr -a -- bz 'bazel'
+abbr -a -- deeplink 'xcrun simctl openurl booted'
+abbr -a -- g git
+abbr -a -- gaa 'git add .'
+abbr -a -- gc 'git commit'
+abbr -a -- gca 'git commit --amend --no-edit'
+abbr -a -- gcaa 'git commit --amend --no-edit -a'
+abbr -a -- gcf 'git commit --fixup'
+abbr -a -- gco 'git checkout'
+abbr -a -- gcp 'git cherry-pick'
+abbr -a -- gcpc 'git cherry-pick --continue'
+abbr -a -- gcps 'git cherry-pick --skip'
+abbr -a -- gdm 'git delete-local-merged'
+abbr -a -- gf 'git fetch --all'
+abbr -a -- gfp 'git push --force-with-lease'
+abbr -a -- gmt 'git mergetool'
+abbr -a -- gpr 'git submit-pr'
+abbr -a -- gr 'git rebase'
+abbr -a -- gra 'git rebase --abort'
+abbr -a -- grc 'git rebase --continue'
+abbr -a -- gri 'git rebase -i'
+abbr -a -- gro 'git rebase --onto'
+abbr -a -- grs 'git rebase --skip'
+abbr -a -- gs 'git show'
+abbr -a -- gup 'git update-pr'
+abbr -a -- ll 'ls -lhA'
+
+# iTerm2 shell integration
+source "$XDG_CONFIG_HOME/fish/iterm2_shell_integration.fish"

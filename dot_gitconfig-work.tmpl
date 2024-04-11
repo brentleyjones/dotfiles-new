@@ -1,0 +1,12 @@
+{{- if .workEmail -}}
+[user]
+	name = Brentley Jones
+	email = brentley.jones@reddit.com
+	signingkey = key::{{ joinPath .chezmoi.homeDir ".ssh" (printf "%s.pub" .workSshKey) | include | trim }}
+[core]
+	sshCommand = ssh -i ~/.ssh/{{ .workSshKey }}
+{{ if .isRedditEmployee }}
+[url "git@github.snooguts.net:"]
+	insteadOf = https://github.snooguts.net/
+{{ end -}}
+{{ end -}}

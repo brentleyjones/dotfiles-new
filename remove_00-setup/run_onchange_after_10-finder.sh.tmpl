@@ -1,0 +1,71 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+set -euo pipefail
+
+echo '[Setting defaults - Finder]'
+
+# Set Desktop as the default location for new Finder windows
+# For other paths, use `PfLo` and `file:///full/path/here/`
+defaults write com.apple.Finder NewWindowTarget -string "PfDe"
+defaults write com.apple.Finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
+
+# Show icons for servers and removable media on the desktop
+defaults write com.apple.Finder ShowExternalHardDrivesOnDesktop -bool true
+defaults write com.apple.Finder ShowHardDrivesOnDesktop -bool false
+defaults write com.apple.Finder ShowMountedServersOnDesktop -bool true
+defaults write com.apple.Finder ShowRemovableMediaOnDesktop -bool true
+
+# Use list view in all Finder windows by default
+# Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
+defaults write com.apple.Finder FXPreferredViewStyle -string "Nlsv"
+defaults write com.apple.Finder SearchRecentsSavedViewStyle -string "Nlsv"
+
+# Show hidden files by default
+defaults write com.apple.Finder AppleShowAllFiles -bool true
+
+# Show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Show path and status bars
+defaults write com.apple.Finder ShowPathbar -bool true
+defaults write com.apple.Finder ShowStatusBar -bool true
+
+# When performing a search, search the current folder by default
+defaults write com.apple.Finder FXDefaultSearchScope -string "SCcf"
+
+# Disable the warning when changing a file extension
+defaults write com.apple.Finder FXEnableExtensionChangeWarning -bool false
+
+# Avoid creating .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# Automatically open a new Finder window when a volume is mounted
+defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
+defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
+defaults write com.apple.Finder OpenWindowForNewRemovableDisk -bool true
+
+# Enable snap-to-grid for icons on the desktop and in other icon views
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+
+# Disable the warning before emptying the Trash
+defaults write com.apple.Finder WarnOnEmptyTrash -bool false
+
+# Show the ~/Library folder
+chflags nohidden ~/Library
+
+# Expand the following File Info panes:
+# “General”, “Open with”, and “Sharing & Permissions”
+defaults write com.apple.Finder FXInfoPanesExpanded -dict \
+  General -bool true \
+  MetaData -bool false \
+  Name -bool false \
+  OpenWith -bool true \
+  Preview -bool false \
+  Privileges -bool true
+
+sleep 1
+killall "Finder" > /dev/null 2>&1 || true
+{{ end -}}

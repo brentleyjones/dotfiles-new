@@ -1,0 +1,26 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+set -euo pipefail
+
+echo '[Setting defaults - iTerm]'
+
+defaults write -app iTerm AlternateMouseScroll -bool true
+defaults write -app iTerm DimBackgroundWindows -bool true
+defaults write -app iTerm DimInactiveSplitPanes -bool true
+defaults write -app iTerm DimOnlyText -bool true
+defaults write -app iTerm HideScrollbar -bool false
+defaults write -app iTerm HideTab -bool true
+defaults write -app iTerm HideTabNumber -bool false
+defaults write -app iTerm PerformDictionaryLookupOnQuickLook -bool false
+defaults write -app iTerm PromptOnQuit -bool false
+defaults write -app iTerm SeparateStatusBarsPerPane -bool true
+defaults write -app iTerm SeparateWindowTitlePerTab -bool true
+defaults write -app iTerm ShowFullScreenTabBar -bool false
+defaults write -app iTerm ShowPaneTitles -bool false
+defaults write -app iTerm SplitPaneDimmingAmount -float 0.6
+defaults write -app iTerm StatusBarPosition -int 1
+defaults write -app iTerm TabsHaveCloseButton -bool true
+defaults write -app iTerm UseBorder -bool false
+defaults write -app iTerm WindowNumber -bool true
+{{ end -}}

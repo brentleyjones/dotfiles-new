@@ -1,0 +1,35 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/opt/homebrew/bin/fish
+{{- else -}}
+#!/usr/local/bin/fish
+{{- end }}
+
+echo '[fish - Setting universal variables]'
+
+# Unset greeting
+set -U fish_greeting
+
+# Paths
+{{ if eq .chezmoi.os "darwin" -}}
+set -U fish_user_paths "$HOME/.local/bin" "/opt/homebrew/bin"
+{{- else -}}
+set -U fish_user_paths "$HOME/.local/bin"
+{{- end }}
+
+# Default colors
+set -U fish_color_error FF0000
+set -U fish_color_operator cyan --bold
+
+# Tide theme settings
+set -U tide_right_prompt_items status cmd_duration time
+set -U tide_git_color_branch F9F9F9
+set -U tide_git_color_conflicted F9F9F9
+set -U tide_git_color_dirty F9F9F9
+set -U tide_git_color_operation F9F9F9
+set -U tide_git_color_staged F9F9F9
+set -U tide_git_color_stash F9F9F9
+set -U tide_git_color_untracked F9F9F9
+set -U tide_git_color_upstream F9F9F9
+set -U tide_pwd_color_anchors F0F0F0
+set -U tide_pwd_color_dirs F0F0F0
+set -U tide_time_bg_color EBEBEB

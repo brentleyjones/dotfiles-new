@@ -1,0 +1,36 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+set -euo pipefail
+
+echo '[Setting defaults - Safari]'
+
+# Set Autofill rules
+defaults write -app Safari AutoFillFromAddressBook -bool true
+defaults write -app Safari AutoFillFromiCloudKeychain -bool true
+defaults write -app Safari AutoFillPasswords -bool true
+defaults write -app Safari AutoFillCreditCardData -bool true
+defaults write -app Safari AutoFillMiscellaneousForms -bool true
+
+# Prevent Safari from opening ‘safe’ files automatically after downloading
+defaults write -app Safari AutoOpenSafeDownloads -bool false
+
+# Hide Safari’s bookmarks bar by default
+defaults write -app Safari "ShowFavoritesBar-v2" -bool false
+
+# Show URL at the bottom when hovering links
+defaults write -app Safari ShowOverlayStatusBar -bool true
+
+# Make Safari’s search banners default to Contains instead of Starts With
+defaults write -app Safari FindOnPageMatchesWordStartsOnly -bool false
+
+# Enable the Develop menu and the Web Inspector in Safari
+defaults write -app Safari DeveloperMenuVisibility -bool true
+defaults write -app Safari IncludeDevelopMenu -bool true
+defaults write -app Safari MobileDeviceRemoteXPCEnabled -bool true
+defaults write -app Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+defaults write -app Safari "WebKitPreferences.developerExtrasEnabled" -bool true
+
+sleep 1
+killall "Safari" > /dev/null 2>&1 || true
+{{ end -}}

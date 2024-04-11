@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -euo pipefail
+
+if [[ ! -f ~/.local/bin/pip ]]; then
+  echo '[Creating python system virtual environment]'
+
+  python3 -m venv ~/.local --system-site-packages
+fi

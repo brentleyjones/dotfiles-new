@@ -1,0 +1,33 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+set -euo pipefail
+
+echo '[Setting defaults - Bartender]'
+
+defaults write -app "Bartender 5" ScrollingMenuBarShowsHiddenItems -bool false
+defaults write -app "Bartender 5" showMenuBarIcon -bool false
+
+defaults write -app "Bartender 5" TriggerSettings '{
+    Battery1 = {
+        description = "";
+        icon = {
+            SFSymbolName = "battery.50";
+            isTemplate = 1;
+        };
+        isActive = 1;
+        isSpecial = 0;
+        menuBarItemsToActivate = {
+            "com.apple.controlcenter-Battery" = Battery;
+        };
+        name = "Show Battery when charging";
+        triggerSpecificDict = {
+            "Battery-When" = charging;
+            "Battery-percentage" = 50;
+        };
+        type = (
+            Battery
+        );
+    };
+}'
+{{ end -}}

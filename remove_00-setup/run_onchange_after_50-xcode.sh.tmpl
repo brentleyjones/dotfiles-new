@@ -1,0 +1,82 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+set -euo pipefail
+
+echo '[Setting defaults - Xcode]'
+
+# Appearance
+defaults write com.apple.dt.Xcode IDEAnnotationPresentation -string "initially-inline"
+defaults write com.apple.dt.Xcode IDEAppearance -int 0
+defaults write com.apple.dt.Xcode IDEBookmarkNavigatorDetailLevel -int 3
+defaults write com.apple.dt.Xcode IDEEditorCoordinatorAllowEditorOpeningAnimation -bool true
+defaults write com.apple.dt.Xcode IDEEditorCoordinatorShouldActivateNewTabsAndWindows -bool true
+defaults write com.apple.dt.Xcode IDEEditorCoordinatorUseTabsInsteadOfWindowsInFullscreen -bool true
+defaults write com.apple.dt.Xcode IDEIssueNavigatorDetailLevel -int 3
+defaults write com.apple.dt.Xcode IDENavigatorRowSizeStyle -string "-1"
+defaults write com.apple.dt.Xcode IDESearchNavigatorDetailLevel -int 3
+
+# Behavior
+defaults write com.apple.dt.Xcode IDERecentEditorDocumentsLimit -int 30
+defaults write com.apple.dt.Xcode IDESuppressStopBuildWarning -bool true
+defaults write com.apple.dt.Xcode IDESuppressStopExecutionWarning -bool true
+defaults write com.apple.dt.Xcode IDESuppressStopExecutionWarningTarget -string "IDESuppressStopExecutionWarningTargetValue_Stop"
+defaults write com.apple.dt.Xcode IDESuppressStopTestWarning -bool true
+
+# Editing
+defaults write com.apple.dt.Xcode DVTTextAlignConsecutiveSlashSlashComments -bool false
+defaults write com.apple.dt.Xcode DVTTextAutoCloseBlockComment -bool true
+defaults write com.apple.dt.Xcode DVTTextAutoEncloseSelectionInDelimiters -bool true
+defaults write com.apple.dt.Xcode DVTTextAutoHighlightTokens -bool true
+defaults write com.apple.dt.Xcode DVTTextAutoInsertCloseBrace -bool true
+defaults write com.apple.dt.Xcode DVTTextAutoInsertOpenBracket -bool true
+defaults write com.apple.dt.Xcode DVTTextAutoSuggestCompletions -bool true
+defaults write com.apple.dt.Xcode DVTTextEditorTrimTrailingWhitespace -bool true
+defaults write com.apple.dt.Xcode DVTTextEditorTrimWhitespaceOnlyLines -bool true
+defaults write com.apple.dt.Xcode DVTTextEnableTypeOverCompletions -bool true
+
+# Editor visuals
+defaults write com.apple.dt.Xcode DVTTextDimInactiveCode -bool true
+defaults write com.apple.dt.Xcode DVTTextEditorWrapsLines -bool true
+defaults write com.apple.dt.Xcode DVTTextOverscrollAmount -string "0.25"
+defaults write com.apple.dt.Xcode DVTTextPageGuideLocation -int 80
+defaults write com.apple.dt.Xcode DVTTextShowCodeCoverageCounts -bool true
+defaults write com.apple.dt.Xcode DVTTextShowCompletionsOnEsc -bool false
+defaults write com.apple.dt.Xcode DVTTextShowFoldingSidebar -bool true
+defaults write com.apple.dt.Xcode DVTTextShowInvisibleCharacters -bool true
+defaults write com.apple.dt.Xcode DVTTextShowLineNumbers -bool true
+defaults write com.apple.dt.Xcode DVTTextShowMarkSeparators -bool true
+defaults write com.apple.dt.Xcode DVTTextShowPageGuide -bool true
+defaults write com.apple.dt.Xcode DVTTextShowMinimap -bool true
+defaults write com.apple.dt.Xcode DVTTextShowStructureHeaders -bool true
+defaults write com.apple.dt.Xcode DVTTextWrappedLinesIndentWidth -int 4
+
+# Indents
+defaults write com.apple.dt.Xcode DVTTextIndentCase -bool false
+defaults write com.apple.dt.Xcode DVTTextIndentCaseInC -bool true
+defaults write com.apple.dt.Xcode DVTTextIndentOnPaste -bool true
+defaults write com.apple.dt.Xcode DVTTextIndentSlashSlashComments -bool false
+defaults write com.apple.dt.Xcode DVTTextIndentTabWidth -int 4
+defaults write com.apple.dt.Xcode DVTTextIndentUsingTabs -bool false
+defaults write com.apple.dt.Xcode DVTTextIndentWidth -int 4
+defaults write com.apple.dt.Xcode DVTTextTabKeyIndentBehavior -string "InLeadingWhitespace"
+defaults write com.apple.dt.Xcode DVTTextUsesSyntaxAwareIndenting -bool true
+
+# Index logs
+defaults write com.apple.dt.Xcode IDEIndexShowBuildLog -bool true
+defaults write com.apple.dt.Xcode IDEIndexShowLog -bool true
+
+# Source control
+defaults write com.apple.dt.Xcode IDESourceControlAutomaticallyAddNewFiles -bool false
+defaults write com.apple.dt.Xcode IDESourceControlEnableSourceControl_10_0 -bool true
+defaults write com.apple.dt.Xcode IDESourceControlLocalStatusCheckingEnabled -bool false
+defaults write com.apple.dt.Xcode IDESourceControlPreselectCommitSheetFiles -bool false
+defaults write com.apple.dt.Xcode IDESourceControlRemoteStatusFetchingEnabled -bool false
+defaults write com.apple.dt.Xcode IDESourceControlShowUpstreamChangesInChangeBar -bool true
+
+# Theme
+defaults write com.apple.dt.Xcode XCFontAndColorCurrentTheme -string "Default (Light) - Mono.xccolortheme"
+
+sleep 1
+killall "Xcode" > /dev/null 2>&1 || true
+{{ end -}}

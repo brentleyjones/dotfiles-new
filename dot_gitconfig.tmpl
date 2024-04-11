@@ -1,0 +1,49 @@
+[user]
+	name = Brentley Jones
+	email = github@brentleyjones.com
+	signingkey = key::{{ joinPath .chezmoi.homeDir ".ssh" (printf "%s.pub" .personalSshKey) | include | trim }}
+[core]
+	sshCommand = ssh -i ~/.ssh/{{ .personalSshKey }}
+
+[apply]
+	whitespace = nowarn
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	ui = true
+[commit]
+	gpgsign = true
+[delta]
+	light = true
+	side-by-side = true
+	line-numbers = true
+[diff "color"]
+	commit = blue
+[init]
+	defaultBranch = main
+[interactive]
+	diffFilter = delta --color-only
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[gpg]
+	format = ssh
+[pull]
+	rebase = true
+[push]
+	default = nothing
+
+[branch "main"]
+	# Prevent pushing to main
+	pushRemote = NOPE
+[branch "master"]
+	# Prevent pushing to master
+	pushRemote = NOPE
+
+{{ if .workEmail }}
+[includeIf "gitdir:~/Developer/Work/"]
+	path = .gitconfig-work
+{{ end -}}

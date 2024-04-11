@@ -1,3 +1,2 @@
+.DS_Store
 git/gitconfig.symlink
-Brewfile*.lock.json
-__pycache__/

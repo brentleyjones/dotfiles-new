@@ -1,0 +1,21 @@
+{{- $personalEmail := promptStringOnce . "personalEmail" "What is your personal GitHub email address" -}}
+{{- $workEmail := promptStringOnce . "workEmail" "What is your work email address (leave empty if not different)" -}}
+{{- $personalSshKey := promptStringOnce . "personalSshKey" "Name of personal ssh key" "id_ed25519" -}}
+{{- $workSshKey := "" -}}
+{{- $isRedditEmployee := false -}}
+{{- if $workEmail -}}
+{{-   $workSshKey = promptStringOnce . "workSshKey" "Name of work ssh key" "id_rsa" -}}
+{{-   $isRedditEmployee = promptBoolOnce . "isRedditEmployee" "Are you a Reddit employee" -}}
+{{- end -}}
+
+{{- $useChrome := promptBoolOnce . "useChrome" "Do you want Chrome on your dock" -}}
+{{- $useSafari := promptBoolOnce . "useSafari" "Do you want Safari on your dock" -}}
+
+[data]
+    personalEmail = {{ $personalEmail | quote }}
+    personalSshKey = {{ $personalSshKey | quote }}
+    workEmail = {{ $workEmail | quote }}
+    workSshKey = {{ $workSshKey | quote }}
+    isRedditEmployee = {{ $isRedditEmployee }}
+    useChrome = {{ $useChrome }}
+    useSafari = {{ $useSafari }}

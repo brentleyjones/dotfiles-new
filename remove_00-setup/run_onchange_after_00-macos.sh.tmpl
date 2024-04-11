@@ -1,0 +1,97 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+set -euo pipefail
+
+echo '[Setting defaults - System]'
+
+# Quit System Preferences so it doesn't muck with your settings
+osascript -e 'tell application "System Preferences" to quit'
+
+###############################################################################
+# General UI/UX
+###############################################################################
+
+# Scrollbars
+# Possible values: `WhenScrolling`, `Automatic` and `Always`
+defaults write NSGlobalDomain AppleShowScrollBars -string "WhenScrolling"
+
+# Expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+# Expand print panel by default
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+# Save to disk (not to iCloud) by default
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+
+# Automatically quit printer app once the print jobs complete
+defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+
+# Check for software updates daily, not just once per week
+defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+
+# Disable automatic termination of inactive apps
+defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
+
+# Don't open any apps when attaching a "camera"
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+
+# Set sidebar icon size to small
+defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1
+
+# Disable "close windows when quitting an app"
+defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool true
+
+###############################################################################
+# Trackpad, mouse, keyboard, Bluetooth accessories, and input
+###############################################################################
+
+# Disable look up and data detectors
+defaults write NSGlobalDomain com.apple.trackpad.forceClick -bool false
+
+# Disable press-and-hold for keys in favor of key repeat.
+defaults write -g ApplePressAndHoldEnabled -bool false
+
+# Set a fast key repeat.
+defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain InitialKeyRepeat -int 25
+
+# Remap caps-lock to escape (this will get reset on logout, but a launch agent
+# will reapply it)
+hidutil property --set '{
+  "UserKeyMapping":[{
+    "HIDKeyboardModifierMappingSrc":0x700000039,
+    "HIDKeyboardModifierMappingDst":0x700000029
+  }]
+}' > /dev/null
+
+###############################################################################
+# Menubar
+###############################################################################
+
+# Battery
+defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool false
+
+# Clock
+defaults write com.apple.menuextra.clock Show24Hour -bool false
+defaults write com.apple.menuextra.clock ShowAMPM -bool true
+defaults write com.apple.menuextra.clock ShowDate -int 2
+defaults write com.apple.menuextra.clock ShowDayOfMonth -bool false
+defaults write com.apple.menuextra.clock ShowDayOfWeek -bool false
+defaults write com.apple.menuextra.clock ShowSeconds -bool false
+
+# Spotlight
+defaults -currentHost write com.apple.Spotlight MenuItemHidden -bool true
+
+###############################################################################
+# Apply
+###############################################################################
+
+sleep 1
+for app in "cfprefsd" "ControlCenter" "SystemUIServer"; do
+  killall "${app}" > /dev/null 2>&1 || true
+done
+{{ end -}}

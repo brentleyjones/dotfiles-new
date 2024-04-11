@@ -1,0 +1,55 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+set -euo pipefail
+
+echo '[Setting defaults - Dock]'
+
+# Dock icon size
+defaults write com.apple.dock tilesize -int 32
+
+# Hot corners
+# Possible values:
+#  0: no-op
+#  2: Mission Control
+#  3: Show application windows
+#  4: Desktop
+#  5: Start screen saver
+#  6: Disable screen saver
+#  7: Dashboard
+# 10: Put display to sleep
+# 11: Launchpad
+# 12: Notification Center
+# Put display to sleed if we're in the bottom-left/bottom-right hot corners.
+defaults write com.apple.dock wvous-bl-corner -int 0
+defaults write com.apple.dock wvous-bl-modifier -int 0
+defaults write com.apple.dock wvous-br-corner -int 10
+defaults write com.apple.dock wvous-br-modifier -int 0
+
+# Don’t automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
+
+# Make Dock icons of hidden applications translucent
+defaults write com.apple.dock showhidden -bool true
+
+# Set dock items
+dockutil --remove all --no-restart
+dockutil --add '/Applications' --display folder --view list --section others --sort name --no-restart
+dockutil --add '~/Downloads' --display folder --view fan --section others --sort datemodified --no-restart
+{{- if .useChrome }}
+dockutil --add '/Applications/Google Chrome.app' --no-restart
+{{- end }}
+{{- if .useSafari }}
+dockutil --add /Applications/Safari.app  --no-restart
+{{- end }}
+dockutil --add /Applications/Slack.app --no-restart
+dockutil --add /System/Applications/Messages.app --no-restart
+dockutil --add /Applications/Things3.app --no-restart
+dockutil --add '' --type spacer --section apps --no-restart
+dockutil --add /Applications/iTerm.app --no-restart
+dockutil --add /Applications/Tower.app --no-restart
+dockutil --add '/Applications/Visual Studio Code.app' --no-restart
+
+sleep 1
+killall "Dock" > /dev/null 2>&1 || true
+{{ end -}}
