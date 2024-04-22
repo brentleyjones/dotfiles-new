@@ -49,6 +49,9 @@ abbr -a -- grs 'git rebase --skip'
 abbr -a -- gs 'git show'
 abbr -a -- gup 'git update-pr'
 abbr -a -- ll 'ls -lhA'
-
+{{ if .useRbenv }}
+# Ruby
+status --is-interactive; and rbenv init - fish | source
+{{ end }}
 # iTerm2 shell integration
 source "$XDG_CONFIG_HOME/fish/iterm2_shell_integration.fish"
