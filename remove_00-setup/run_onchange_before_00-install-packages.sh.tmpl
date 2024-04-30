@@ -76,6 +76,10 @@ brew "the_silver_searcher"
 brew "tree"
 brew "withered-magic/brew/starpls"
 
+{{ if .usePyenv }}
+brew "pyenv"
+{{ end }}
+
 {{ if .useRbenv }}
 brew "rbenv"
 {{ end }}

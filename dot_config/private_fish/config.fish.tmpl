@@ -49,6 +49,9 @@ abbr -a -- grs 'git rebase --skip'
 abbr -a -- gs 'git show'
 abbr -a -- gup 'git update-pr'
 abbr -a -- ll 'ls -lhA'
+{{ if .usePyenv }}
+pyenv init - | source
+{{ end }}
 {{ if .useRbenv }}
 # Ruby
 status --is-interactive; and rbenv init - fish | source

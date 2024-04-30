@@ -8,6 +8,7 @@
 {{-   $isRedditEmployee = promptBoolOnce . "isRedditEmployee" "Are you a Reddit employee" -}}
 {{- end -}}
 
+{{- $usePyenv := promptBoolOnce . "usePyenv" "Use pyenv" -}}
 {{- $useRbenv := promptBoolOnce . "useRbenv" "Use rbenv" -}}
 
 {{- $useChrome := promptBoolOnce . "useChrome" "Do you want Chrome on your dock" -}}
@@ -19,6 +20,7 @@
     workEmail = {{ $workEmail | quote }}
     workSshKey = {{ $workSshKey | quote }}
     isRedditEmployee = {{ $isRedditEmployee }}
+    usePyenv = {{ $usePyenv }}
     useRbenv = {{ $useRbenv }}
     useChrome = {{ $useChrome }}
     useSafari = {{ $useSafari }}
