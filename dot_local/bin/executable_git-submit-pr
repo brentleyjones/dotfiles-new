@@ -65,5 +65,6 @@ elif git -C "$worktree_dir" push --quiet --set-upstream mine "$branch_name"; the
   git -C "$worktree_dir" open --remote mine "pull/new/$branch_name"
 else
   echo "error: failed to create remote branch" >&2
-  git branch -d "$branch_name"
+  _checkout_empty
+  git branch -D "$branch_name"
 fi
